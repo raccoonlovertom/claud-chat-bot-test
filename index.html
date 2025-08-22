@@ -3,722 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How Was Your Day? - Your Cozy Chat Companion</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 25%, #fd79a8 75%, #a29bfe 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            animation: backgroundShift 20s ease infinite;
-            background-size: 400% 400%;
-        }
-
-        @keyframes backgroundShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .main-container {
-            width: 100%;
-            max-width: 600px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .settings-panel {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .settings-title {
-            color: #2d3436;
-            font-size: 1.3em;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .mode-selector {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .mode-btn {
-            flex: 1;
-            padding: 12px;
-            border: 2px solid transparent;
-            border-radius: 15px;
-            background: linear-gradient(135deg, #fff5e6 0%, #ffe0b2 100%);
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.95em;
-        }
-
-        .mode-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(253, 121, 168, 0.3);
-        }
-
-        .mode-btn.active {
-            background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);
-            color: white;
-            border-color: #fd79a8;
-        }
-
-        .generation-selector {
-            display: flex;
-            gap: 10px;
-        }
-
-        .gen-btn {
-            flex: 1;
-            padding: 10px;
-            border: 2px solid transparent;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.7);
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .gen-btn.active {
-            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
-            color: white;
-        }
-
-        .chat-container {
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            backdrop-filter: blur(10px);
-            display: flex;
-            flex-direction: column;
-            height: 550px;
-            overflow: hidden;
-        }
-
-        .chat-header {
-            background: linear-gradient(135deg, #fdcb6e 0%, #fd79a8 100%);
-            color: white;
-            padding: 25px;
-            text-align: center;
-            border-radius: 30px 30px 0 0;
-        }
-
-        .chat-header h1 {
-            font-size: 1.8em;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .chat-header p {
-            opacity: 0.95;
-            font-size: 1em;
-            font-weight: 500;
-        }
-
-        .chat-messages {
-            flex: 1;
-            padding: 25px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            background: linear-gradient(180deg, rgba(255, 239, 213, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
-        }
-
-        .message {
-            max-width: 85%;
-            animation: slideIn 0.4s ease;
-        }
-
-        .message.user {
-            align-self: flex-end;
-            background: linear-gradient(135deg, #fab1a0 0%, #fd79a8 100%);
-            color: white;
-            border-radius: 25px 25px 5px 25px;
-            padding: 14px 18px;
-            font-weight: 500;
-        }
-
-        .message.bot {
-            align-self: flex-start;
-            background: linear-gradient(135deg, #fff5e6 0%, #ffe0b2 100%);
-            color: #2d3436;
-            border-radius: 25px 25px 25px 5px;
-            padding: 14px 18px;
-            border-left: 4px solid #fdcb6e;
-            line-height: 1.5;
-        }
-
-        .message.bot .quote {
-            font-style: italic;
-            color: #636e72;
-            margin: 8px 0;
-            padding-left: 10px;
-            border-left: 3px solid #fdcb6e;
-        }
-
-        .typing {
-            align-self: flex-start;
-            background: #fff5e6;
-            border-radius: 25px;
-            padding: 18px;
-            display: flex;
-            gap: 5px;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            background: #fdcb6e;
-            border-radius: 50%;
-            animation: bounce 1.4s infinite;
-        }
-
-        .dot:nth-child(2) { animation-delay: 0.2s; }
-        .dot:nth-child(3) { animation-delay: 0.4s; }
-
-        .suggestions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 12px;
-        }
-
-        .suggestion {
-            background: rgba(253, 203, 110, 0.2);
-            color: #e17055;
-            border: 2px solid rgba(253, 203, 110, 0.4);
-            border-radius: 20px;
-            padding: 8px 14px;
-            font-size: 0.9em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .suggestion:hover {
-            background: #fdcb6e;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(253, 203, 110, 0.4);
-        }
-
-        .chat-input {
-            display: flex;
-            padding: 20px;
-            gap: 12px;
-            background: linear-gradient(180deg, #fff9f0 0%, #ffffff 100%);
-            border-radius: 0 0 30px 30px;
-        }
-
-        .chat-input input {
-            flex: 1;
-            padding: 14px 20px;
-            border: 2px solid #ffe0b2;
-            border-radius: 25px;
-            font-size: 15px;
-            outline: none;
-            transition: all 0.3s ease;
-            font-family: 'Quicksand', sans-serif;
-            font-weight: 500;
-        }
-
-        .chat-input input:focus {
-            border-color: #fdcb6e;
-            transform: translateY(-1px);
-            box-shadow: 0 5px 15px rgba(253, 203, 110, 0.3);
-        }
-
-        .send-btn {
-            background: linear-gradient(135deg, #fdcb6e 0%, #fd79a8 100%);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-
-        .send-btn:hover {
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 8px 20px rgba(253, 121, 168, 0.4);
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes bounce {
-            0%, 60%, 100% { transform: translateY(0); }
-            30% { transform: translateY(-12px); }
-        }
-
-        .chat-messages::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .chat-messages::-webkit-scrollbar-track {
-            background: #fff5e6;
-            border-radius: 4px;
-        }
-
-        .chat-messages::-webkit-scrollbar-thumb {
-            background: #fdcb6e;
-            border-radius: 4px;
-        }
-
-        .emoji {
-            font-size: 1.2em;
-            margin: 0 3px;
-        }
-    </style>
+    <title>How Was Your Day? - Cozy Chat</title>
+    
+    <!-- Link to our CSS file -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="main-container">
-        <div class="settings-panel">
-            <div class="settings-title">✨ Pick Your Vibe ✨</div>
-            <div class="mode-selector">
-                <button class="mode-btn active" data-mode="books">📚 Books</button>
-                <button class="mode-btn" data-mode="tv">📺 TV Shows</button>
-                <button class="mode-btn" data-mode="music">🎵 Music</button>
+    <div class="container">
+        <!-- Settings Panel -->
+        <div class="settings">
+            <h2>✨ Pick Your Vibe ✨</h2>
+            
+            <!-- Mode Selection -->
+            <div class="button-group">
+                <button class="btn mode-btn" data-mode="books" onclick="setMode('books')">
+                    📚 Books
+                </button>
+                <button class="btn mode-btn active" data-mode="tv" onclick="setMode('tv')">
+                    📺 TV Shows
+                </button>
+                <button class="btn mode-btn" data-mode="music" onclick="setMode('music')">
+                    🎵 Music
+                </button>
             </div>
-            <div class="generation-selector">
-                <button class="gen-btn active" data-gen="millennial">Millennial (1981-1996)</button>
-                <button class="gen-btn" data-gen="genz">Gen Z (1997-2012)</button>
+            
+            <!-- Generation Selection -->
+            <div class="button-group">
+                <button class="btn gen-btn active" data-gen="millennial" onclick="setGeneration('millennial')">
+                    Millennial
+                </button>
+                <button class="btn gen-btn" data-gen="genz" onclick="setGeneration('genz')">
+                    Gen Z
+                </button>
             </div>
         </div>
-
+        
+        <!-- Chat Container -->
         <div class="chat-container">
+            <!-- Header -->
             <div class="chat-header">
-                <h1>How Was Your Day? <span class="emoji">🌅</span></h1>
-                <p>Let's talk about it - I'm all ears!</p>
+                <h1>How Was Your Day? 🌅</h1>
+                <p>Let's talk about it!</p>
             </div>
             
+            <!-- Messages Area -->
             <div class="chat-messages" id="chatMessages">
+                <!-- Welcome message -->
                 <div class="message bot">
-                    Hey there, sunshine! <span class="emoji">☀️</span> So glad you're here. How's your day been treating you? I'm ready to listen to all of it - the good, the meh, and everything in between!
+                    Hey there! So glad you're here. How's your day been? 
+                    I'm ready to listen to all of it - the good, the meh, and everything in between!
                 </div>
+                
+                <!-- Quick reply suggestions -->
                 <div class="suggestions">
-                    <div class="suggestion" onclick="sendMessage('It was actually pretty good!')">Pretty good actually!</div>
-                    <div class="suggestion" onclick="sendMessage('Exhausting honestly')">Exhausting honestly</div>
-                    <div class="suggestion" onclick="sendMessage('Just okay I guess')">Just okay I guess</div>
-                    <div class="suggestion" onclick="sendMessage('Really stressful')">Really stressful</div>
+                    <button class="suggestion" onclick="quickReply('It was actually pretty good!')">
+                        Pretty good!
+                    </button>
+                    <button class="suggestion" onclick="quickReply('Kind of exhausting honestly')">
+                        Exhausting
+                    </button>
+                    <button class="suggestion" onclick="quickReply('Just okay I guess')">
+                        Just okay
+                    </button>
+                    <button class="suggestion" onclick="quickReply('Really stressful')">
+                        Stressful
+                    </button>
                 </div>
             </div>
             
+            <!-- Input Area -->
             <div class="chat-input">
-                <input type="text" id="messageInput" placeholder="Tell me about your day..." onkeypress="handleKeyPress(event)">
-                <button class="send-btn" onclick="sendUserMessage()">💬</button>
+                <input 
+                    type="text" 
+                    id="messageInput" 
+                    placeholder="Tell me about your day..."
+                    autocomplete="off"
+                >
+                <button class="send-btn" onclick="sendMessage()">
+                    ➤
+                </button>
             </div>
         </div>
     </div>
-
-    <script>
-        let currentMode = 'books';
-        let currentGeneration = 'millennial';
-        let conversationContext = {
-            mood: null,
-            topics: [],
-            redirectCount: 0
-        };
-
-        // Mode and Generation Selectors
-        document.querySelectorAll('.mode-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                currentMode = this.dataset.mode;
-            });
-        });
-
-        document.querySelectorAll('.gen-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.gen-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                currentGeneration = this.dataset.gen;
-            });
-        });
-
-        // Comprehensive response database
-        const responses = {
-            books: {
-                millennial: {
-                    good_day: [
-                        {
-                            response: "That's wonderful to hear! You know what Dumbledore said - 'Happiness can be found even in the darkest of times, if one only remembers to turn on the light.' Sounds like you found your light today!",
-                            followUp: "What was the highlight? I'd love to hear what made it special!"
-                        },
-                        {
-                            response: "Love that energy! It's giving major Elizabeth Bennet vibes - 'I am determined that nothing but the very deepest love will induce me into matrimony.' Except you're determined to have great days!",
-                            followUp: "Tell me, what made today stand out from the usual routine?"
-                        }
-                    ],
-                    tired: [
-                        {
-                            response: "Oh honey, I feel that in my bones. Like Frodo carrying the ring to Mordor - some days we're all just trying to make it to Mount Doom, aren't we?",
-                            followUp: "What's been weighing you down today? Work stuff or just life being... life?"
-                        },
-                        {
-                            response: "Exhaustion is so real. Remember what Scarlett O'Hara said? 'After all, tomorrow is another day!' But first, we need to survive this one.",
-                            followUp: "Long work day or just one of those mentally draining days?"
-                        }
-                    ],
-                    stressed: [
-                        {
-                            response: "Stress is the worst! Like Hermione before every exam, except life doesn't come with a Time-Turner to give us more hours.",
-                            followUp: "What's the main stressor today? Sometimes just naming it helps!"
-                        }
-                    ],
-                    okay: [
-                        {
-                            response: "Sometimes okay is perfectly fine! Not every day needs to be a Gatsby party. Even Jane Eyre had her quiet, contemplative days.",
-                            followUp: "Anything particular making it just 'okay'? Or is it one of those neutral days?"
-                        }
-                    ]
-                },
-                genz: {
-                    good_day: [
-                        {
-                            response: "Yesss, we love to see it! Very much 'It's a good day to save lives' energy - except you're out here living your best life!",
-                            followUp: "Spill the tea! What made today hit different?"
-                        },
-                        {
-                            response: "Period! That's giving main character energy! Like Percy Jackson finally getting that quest - you're thriving!",
-                            followUp: "Okay but like, what happened? I need the deets!"
-                        }
-                    ],
-                    tired: [
-                        {
-                            response: "The exhaustion is so valid. Giving major Katniss 'I volunteer as tribute... to take a nap' vibes right now.",
-                            followUp: "Is it the usual suspects - work/school - or did something extra happen today?"
-                        }
-                    ],
-                    stressed: [
-                        {
-                            response: "Stressed and not blessed, I get it. Sometimes we're all just Charlie from Perks trying to participate while internally screaming.",
-                            followUp: "What's got you stressed? Let's unpack this!"
-                        }
-                    ],
-                    okay: [
-                        {
-                            response: "The 'meh' days hit different sometimes. Not every day can be a Shadowhunter adventure - sometimes we're just mundanes living life.",
-                            followUp: "Is it boring-okay or overwhelming-okay? There's definitely a difference!"
-                        }
-                    ]
-                }
-            },
-            tv: {
-                millennial: {
-                    good_day: [
-                        {
-                            response: "Amazing! You're having a 'Treat Yo Self' day like Tom and Donna from Parks and Rec! The universe is aligning for you!",
-                            followUp: "What made it so good? Did something specific happen or just good vibes all around?"
-                        },
-                        {
-                            response: "Love that for you! Very 'I am the one who knocks' energy, except you're knocking down all your goals today!",
-                            followUp: "Tell me everything! What went right today?"
-                        }
-                    ],
-                    tired: [
-                        {
-                            response: "I feel you! Like Jim looking at the camera in The Office when things get too much. Some days we're all just trying to make it to 5 PM.",
-                            followUp: "Work exhaustion or life exhaustion? Or both?"
-                        },
-                        {
-                            response: "That's so valid. Channeling your inner Lorelai Gilmore - 'I need coffee in an IV!' energy right now.",
-                            followUp: "What's been draining your battery today?"
-                        }
-                    ],
-                    stressed: [
-                        {
-                            response: "Oof, stress mode activated. Like Monica trying to keep everything perfect but the universe said 'not today.' I get it!",
-                            followUp: "What's the main source? Work drama? Life drama? All of the above?"
-                        }
-                    ],
-                    okay: [
-                        {
-                            response: "Sometimes we're all just background characters in our own show, and that's okay! Not every episode is a season finale.",
-                            followUp: "Just coasting through or is something specific making it feel 'meh'?"
-                        }
-                    ]
-                },
-                genz: {
-                    good_day: [
-                        {
-                            response: "Yesss! You're giving 'Euphoria' but make it actually euphoric and not traumatic! We love to see it!",
-                            followUp: "No but seriously, what made today so good? I need the full story!"
-                        },
-                        {
-                            response: "Okay, main character moment! Very much 'Wednesday Addams but having a good day' energy!",
-                            followUp: "Bestie, what happened? Give me all the details!"
-                        }
-                    ],
-                    tired: [
-                        {
-                            response: "The exhaustion is real! Giving 'Stranger Things kids after fighting the Mind Flayer' vibes. You deserve rest!",
-                            followUp: "What's got you so drained? School? Work? Just existing in this timeline?"
-                        }
-                    ],
-                    stressed: [
-                        {
-                            response: "Stressed, depressed, and not well-dressed? Very 'Fleabag breaking the fourth wall to scream internally' mood.",
-                            followUp: "What's causing the stress spiral? Let's talk it out!"
-                        }
-                    ],
-                    okay: [
-                        {
-                            response: "The 'meh' is valid! Not every day can be 'Bridgerton' level drama. Sometimes we're just NPCs in our own life.",
-                            followUp: "Is it boring-okay or chaotic-okay? Because those hit different!"
-                        }
-                    ]
-                }
-            },
-            music: {
-                millennial: {
-                    good_day: [
-                        {
-                            response: "Yes! You're living your 'Good Day' by Nappy Roots! Or maybe more 'Walking on Sunshine' - either way, I'm here for it!",
-                            followUp: "What's got you feeling like you're in a feel-good montage today?"
-                        },
-                        {
-                            response: "Love this energy! Very 'Mr. Brightside' but you're actually on the bright side! The Killers would be proud!",
-                            followUp: "Tell me what made today soundtrack-worthy!"
-                        }
-                    ],
-                    tired: [
-                        {
-                            response: "I feel that! You're in your 'Mad World' era - everything's exhausting and we're all just trying to find our way.",
-                            followUp: "What's got you feeling like you need a whole Evanescence album to process today?"
-                        },
-                        {
-                            response: "The exhaustion is real! Like Green Day said, 'Wake me up when September ends'... except it's every month.",
-                            followUp: "Is it physical tired or emotional tired? Because both are so valid!"
-                        }
-                    ],
-                    stressed: [
-                        {
-                            response: "Stressed mode: activated. You're living 'Under Pressure' by Queen and Bowie. But hey, diamonds are made under pressure!",
-                            followUp: "What's the main stressor? Let's break it down!"
-                        }
-                    ],
-                    okay: [
-                        {
-                            response: "Sometimes we're all just 'Barely Breathing' by Duncan Sheik - not bad, not great, just... existing. And that's okay!",
-                            followUp: "What's making it feel just 'okay'? Need to vent about anything?"
-                        }
-                    ]
-                },
-                genz: {
-                    good_day: [
-                        {
-                            response: "Period! You're in your 'good 4 u' era but unironically! Olivia Rodrigo found dead (in the best way)!",
-                            followUp: "Okay but what happened? Why are we thriving today?"
-                        },
-                        {
-                            response: "Yesss! Very much 'Levitating' by Dua Lipa energy! You're literally glowing right now!",
-                            followUp: "Spill! What made today hit different?"
-                        }
-                    ],
-                    tired: [
-                        {
-                            response: "The exhaustion! You're giving 'Stressed Out' by Twenty One Pilots but make it actually stressed and tired.",
-                            followUp: "What's draining your social battery today? Or is it everything?"
-                        },
-                        {
-                            response: "Felt! You're in your 'Tired' by Beabadoobee era. Sometimes we're all just trying to make it through!",
-                            followUp: "Is it giving burnout or just regular tired? There's levels to this!"
-                        }
-                    ],
-                    stressed: [
-                        {
-                            response: "The stress! Very 'Anxiety' by Julia Michaels. Your nervous system said 'not today, Satan!'",
-                            followUp: "What's got you spiraling? Let's process this together!"
-                        }
-                    ],
-                    okay: [
-                        {
-                            response: "The 'meh' vibes are valid! You're in your 'Bored' by Billie Eilish era - not sad, not happy, just... here.",
-                            followUp: "Is it underwhelming-okay or overwhelming-okay? Both are moods!"
-                        }
-                    ]
-                }
-            }
-        };
-
-        // Redirect responses when user goes off-topic
-        const redirects = {
-            millennial: [
-                "That's interesting! But let's get back to you - how did that affect your day?",
-                "I hear you! Speaking of which, how's YOUR day been going with all of this?",
-                "Totally get that! But I'm more curious about how you're doing today. What's been on your mind?",
-                "For sure! But let's circle back - what's been the vibe of your day so far?"
-            ],
-            genz: [
-                "No but like, that's cool and all, but how did YOUR day go though? That's what I'm here for!",
-                "Okay but bestie, we're here to talk about YOU! How's your day been hitting?",
-                "I feel that, but let's make this about you rn! What's the tea on your day?",
-                "Valid, but I'm trying to hear about YOUR main character moment today!"
-            ]
-        };
-
-        // Follow-up questions for continuing conversation
-        const deeperQuestions = {
-            work: [
-                "Was it meetings that drained you or just the general workload?",
-                "Did anything good happen at work at least?",
-                "How are your coworkers? Are they making it better or worse?"
-            ],
-            emotions: [
-                "Have you had a chance to process these feelings?",
-                "What usually helps when you feel like this?",
-                "Is this a new feeling or has it been building up?"
-            ],
-            general: [
-                "What would have made today better?",
-                "Are you looking forward to anything tomorrow?",
-                "What's one small win from today, even if it's tiny?"
-            ]
-        };
-
-        function detectMood(input) {
-            const lower = input.toLowerCase();
-            if (lower.match(/good|great|amazing|wonderful|fantastic|awesome|best/)) return 'good_day';
-            if (lower.match(/tired|exhausted|drained|sleepy|fatigue/)) return 'tired';
-            if (lower.match(/stress|overwhelm|anxious|worry|pressure/)) return 'stressed';
-            if (lower.match(/okay|fine|alright|meh|whatever|decent/)) return 'okay';
-            if (lower.match(/bad|terrible|awful|worst|horrible/)) return 'stressed';
-            return 'okay';
-        }
-
-        function detectOffTopic(input) {
-            const lower = input.toLowerCase();
-            const dayTopics = ['work', 'today', 'morning', 'afternoon', 'evening', 'earlier', 'lunch', 'breakfast', 'dinner', 'commute', 'meeting', 'boss', 'colleague', 'friend', 'family', 'tired', 'stress', 'happy', 'sad', 'mood'];
-            const offTopics = ['weather', 'news', 'politics', 'sports', 'movie', 'game', 'theory', 'philosophy', 'science', 'technology'];
-            
-            let dayScore = dayTopics.filter(topic => lower.includes(topic)).length;
-            let offScore = offTopics.filter(topic => lower.includes(topic)).length;
-            
-            return offScore > dayScore && !lower.includes('my day') && !lower.includes('today');
-        }
-
-        function getBotResponse(input) {
-            const mood = detectMood(input);
-            const isOffTopic = detectOffTopic(input);
-            
-            // Handle off-topic with gentle redirects
-            if (isOffTopic && conversationContext.redirectCount < 3) {
-                conversationContext.redirectCount++;
-                const redirectList = redirects[currentGeneration];
-                return redirectList[Math.floor(Math.random() * redirectList.length)];
-            }
-            
-            // Reset redirect count if on topic
-            if (!isOffTopic) conversationContext.redirectCount = 0;
-            
-            // Store mood for context
-            if (!conversationContext.mood) conversationContext.mood = mood;
-            
-            // Get appropriate response based on mode, generation, and mood
-            const modeResponses = responses[currentMode][currentGeneration][mood];
-            if (modeResponses && modeResponses.length > 0) {
-                const selected = modeResponses[Math.floor(Math.random() * modeResponses.length)];
-                
-                // Format response with quote if available
-                let fullResponse = selected.response;
-                if (selected.quote) {
-                    fullResponse += `<div class="quote">"${selected.quote}"</div>`;
-                }
-                fullResponse += " " + selected.followUp;
-                
-                return fullResponse;
-            }
-            
-            // Default response if nothing matches
-            return currentGeneration === 'genz' 
-                ? "No but fr, tell me more about your day! I'm invested now! What else happened?"
-                : "I'd love to hear more about your day! What else has been going on?";
-        }
-
-        function addMessage(message, isUser = false) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
-            messageDiv.innerHTML = message;
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        function showTyping() {
-            const typingDiv = document.createElement('div');
-            typingDiv.className = 'typing';
-            typingDiv.innerHTML = '<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
-            typingDiv.id = 'typing';
-            chatMessages.appendChild(typingDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        function removeTyping() {
-            const typing = document.getElementById('typing');
-            if (typing) typing.remove();
-        }
-
-        function sendMessage(message) {
-            if (!message.trim()) return;
-            
-            addMessage(message, true);
-            messageInput.value = '';
-            
-            showTyping();
-            
-            // Simulate thinking time
-            setTimeout(() => {
-                removeTyping();
-                const response = getBotResponse(message);
-                addMessage(response);
-            }, 800 + Math.random() * 700);
-        }
-
-        function sendUserMessage() {
-            const message = messageInput.value;
-            sendMessage(message);
-        }
-
-        function handleKeyPress(event) {
-            if (event.key === 'Enter') {
-                sendUserMessage();
-            }
-        }
-
-        const chatMessages = document.getElementById('chatMessages');
-        const messageInput = document.getElementById('messageInput');
-        
-        // Focus on input
-        messageInput.focus();
-    </script>
+    
+    <!-- Link to our JavaScript file -->
+    <script src="chatbot.js"></script>
 </body>
 </html>
