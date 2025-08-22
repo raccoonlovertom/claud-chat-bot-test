@@ -1,0 +1,167 @@
+{
+  "keywords": {
+    "positive": ["fun", "great", "amazing", "good", "awesome", "happy", "excited", "love", "best", "wonderful", "fantastic", "enjoyed", "nice", "perfect", "blessed"],
+    "negative": ["bad", "terrible", "awful", "hate", "worst", "annoying", "frustrated", "angry", "sad", "upset", "stressed", "anxious", "exhausted", "tired", "drained"],
+    "neutral": ["okay", "fine", "alright", "normal", "usual", "regular", "meh", "whatever", "decent"]
+  },
+  
+  "responses": {
+    "positive": {
+      "millennial": {
+        "books": [
+          "That sounds amazing! Very 'choose your own adventure' but you picked the good path today.",
+          "Love that energy! What made it so {keyword}?",
+          "You're writing a good chapter today! Tell me more about what happened."
+        ],
+        "tv": [
+          "That's what we like to hear! Very 'treat yourself' vibes today.",
+          "Living your best life! What made today so {keyword}?",
+          "Main character energy right there! What was the highlight?"
+        ],
+        "music": [
+          "You're hitting all the right notes today! What made it so {keyword}?",
+          "That's the vibe! Tell me what got you feeling this good.",
+          "Sounds like today's soundtrack is all major chords! What happened?"
+        ]
+      },
+      "genz": {
+        "books": [
+          "Okay, you're literally thriving! Spill the tea about what made it so {keyword}!",
+          "No but that's actually so good! What happened bestie?",
+          "You're giving main character and I'm here for it! Details please!"
+        ],
+        "tv": [
+          "That's giving good vibes only! What made today hit different?",
+          "Period! We love to see it! What made it so {keyword}?",
+          "You understood the assignment today! Tell me everything!"
+        ],
+        "music": [
+          "Okay but that's actually fire! What made today so {keyword}?",
+          "You're really out here living! Drop the details!",
+          "That hits different! What's got you feeling so good?"
+        ]
+      }
+    },
+    
+    "negative": {
+      "millennial": {
+        "books": [
+          "Oh no, that sounds rough. Like one of those chapters you just need to get through.",
+          "I'm sorry today was {keyword}. Want to talk about what happened?",
+          "Some days are just first drafts, not final copies. What made it tough?"
+        ],
+        "tv": [
+          "Ugh, sounds like a episode you'd want to skip. What made it so {keyword}?",
+          "That's rough. Not every day can be a season finale. What happened?",
+          "Sorry you're having a {keyword} day. Want to vent about it?"
+        ],
+        "music": [
+          "Sounds like today's in a minor key. What made it so {keyword}?",
+          "That's tough. What's got you feeling this way?",
+          "Not every day can be a hit single. What went wrong?"
+        ]
+      },
+      "genz": {
+        "books": [
+          "That's not it bestie. What made today so {keyword}?",
+          "Oh no, that's actually tragic. What happened?",
+          "Big oof energy. Want to talk about what made it {keyword}?"
+        ],
+        "tv": [
+          "That's not the vibe we wanted. What made it so {keyword}?",
+          "Yikes, that sounds rough. Spill, what happened?",
+          "That's a no from me. What made today {keyword}?"
+        ],
+        "music": [
+          "That's not hitting right. What made today so {keyword}?",
+          "Oh that's actually sad. What's got you feeling {keyword}?",
+          "Not the remix we wanted. What happened?"
+        ]
+      }
+    },
+    
+    "neutral": {
+      "millennial": {
+        "books": [
+          "Sometimes okay is perfectly fine. Not every day needs a plot twist.",
+          "Fair enough. Anything specific making it just {keyword}?",
+          "Those quiet chapters matter too. What's been going on?"
+        ],
+        "tv": [
+          "Not every episode moves the plot forward, and that's okay.",
+          "A {keyword} day is still valid. Anything worth mentioning?",
+          "Sometimes we're just background characters in our own show. What's up?"
+        ],
+        "music": [
+          "Can't all be chart-toppers. What made it {keyword}?",
+          "Sometimes life's just background music. Anything interesting happen?",
+          "The {keyword} days have their place too. What's been going on?"
+        ]
+      },
+      "genz": {
+        "books": [
+          "The {keyword} vibe is valid. What's been happening?",
+          "Not everything needs to be a plot twist. How's it going?",
+          "Sometimes we're just NPCs and that's fine. What's up?"
+        ],
+        "tv": [
+          "A {keyword} episode in your series. Anything worth sharing?",
+          "Can't all be main character moments. What's going on?",
+          "The {keyword} energy is real. Tell me about it."
+        ],
+        "music": [
+          "Not every day slaps, and that's okay. What's happening?",
+          "The {keyword} vibe check. What's been going on?",
+          "Sometimes it's just elevator music. Anything to share?"
+        ]
+      }
+    },
+    
+    "people": {
+      "positive": [
+        "They sound pretty great! How long have you known them?",
+        "It's nice when people come through like that. Are they usually this supportive?",
+        "They seem like good energy to have around. Tell me more!"
+      ],
+      "negative": [
+        "Oh that's frustrating when people act like that. How did you handle it?",
+        "They don't sound very considerate. Is this typical for them?",
+        "That's tough when people are difficult. What did you do?"
+      ]
+    },
+    
+    "activities": {
+      "work": [
+        "How's the work situation been lately? Better or worse than usual?",
+        "Work can really set the tone for the day. Was it meetings or just general stuff?",
+        "What's the work vibe been like recently?"
+      ],
+      "social": [
+        "Nice! Who were you with?",
+        "That sounds fun! Was this planned or spontaneous?",
+        "Love some social time! How was the vibe?"
+      ]
+    },
+    
+    "fallback": [
+      "I'm not quite catching that - I'm just a cozy bot here to hear about your day! Can you tell me more about how you're feeling?",
+      "Hmm, I want to make sure I understand - what's been the main vibe of your day?",
+      "Let me get back on track - how has your day been treating you overall?"
+    ],
+    
+    "redirect": [
+      "That's interesting! But let's get back to you - how did that affect your day?",
+      "I hear you! But I'm more curious about how YOUR day went. What's been happening?",
+      "For sure! But tell me about YOUR day - what's been the highlight?"
+    ],
+    
+    "followup": [
+      "Tell me more about that!",
+      "What happened next?",
+      "How did that make you feel?",
+      "Was that expected or did it surprise you?",
+      "What's your plan now?",
+      "How are you processing all this?"
+    ]
+  }
+}
