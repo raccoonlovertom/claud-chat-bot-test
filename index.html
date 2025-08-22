@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Small Talk Chatbot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chat-container {
+            width: 90%;
+            max-width: 500px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .chat-header h1 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+
+        .chat-header p {
+            opacity: 0.9;
+            font-size: 0.9em;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message {
+            display: flex;
+            max-width: 80%;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .message.user {
+            align-self: flex-end;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px 20px 5px 20px;
+            padding: 12px 16px;
+        }
+
+        .message.bot {
+            align-self: flex-start;
+            background: #f1f3f4;
+            color: #333;
+            border-radius: 20px 20px 20px 5px;
+            padding: 12px 16px;
+            border-left: 4px solid #4facfe;
+        }
+
+        .typing {
+            align-self: flex-start;
+            background: #f1f3f4;
+            border-radius: 20px;
+            padding: 16px;
+            display: flex;
+            gap: 4px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #999;
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .dot:nth-child(2) { animation-delay: 0.2s; }
+        .dot:nth-child(3) { animation-delay: 0.4s; }
+
+        .chat-input {
+            display: flex;
+            padding: 20px;
+            gap: 10px;
+            background: #f8f9fa;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid #e1e5e9;
+            border-radius: 25px;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .chat-input input:focus {
+            border-color: #4facfe;
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.2);
+        }
+
+        .send-btn {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .send-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+        }
+
+        .suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .suggestion {
+            background: rgba(79, 172, 254, 0.1);
+            color: #4facfe;
+            border: 1px solid rgba(79, 172, 254, 0.3);
+            border-radius: 15px;
+            padding: 6px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .suggestion:hover {
+            background: #4facfe;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-10px); opacity: 1; }
+        }
+
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>💬 SmartChat</h1>
+            <p>Your clever conversation companion</p>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+                Hey there! 👋 I'm here to chat about anything on your mind. How's your day treating you?
+            </div>
+            <div class="suggestions">
+                <div class="suggestion" onclick="sendMessage('How are you?')">How are you?</div>
+                <div class="suggestion" onclick="sendMessage('Nice weather today')">Nice weather</div>
+                <div class="suggestion" onclick="sendMessage('What are you up to?')">What's up?</div>
+                <div class="suggestion" onclick="sendMessage('How was your weekend?')">Weekend plans</div>
+            </div>
+        </div>
+        
+        <div class="chat-input">
+            <input type="text" id="messageInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+            <button class="send-btn" onclick="sendUserMessage()">➤</button>
+        </div>
+    </div>
+
+    <script>
+        const chatMessages = document.getElementById('chatMessages');
+        const messageInput = document.getElementById('messageInput');
+
+        // Comprehensive small talk database with clever responses
+        const responses = {
+            // Greetings
+            'hello': [
+                "Hello there! Ready to dive into some delightfully random conversation? 🌟",
+                "Hey! Perfect timing - I was just thinking about how much I enjoy meeting new people!",
+                "Hello! You've just made my day 10% brighter. What's on your mind?"
+            ],
+            'hi': [
+                "Hi! 👋 You know, they say 'hi' is the most underrated conversation starter. Prove them wrong!",
+                "Hi there! I'm all ears and ready for whatever direction this conversation takes us.",
+                "Hey! Great choice in greetings - short, sweet, and to the point. I respect that."
+            ],
+            'good morning': [
+                "Good morning! ☀️ Starting the day with conversation - you're already winning at life!",
+                "Morning! Hope your coffee's strong and your day's full of pleasant surprises.",
+                "Good morning! The early bird gets the worm, but the chatty bird gets the fun conversations!"
+            ],
+
+            // How are you variations
+            'how are you': [
+                "I'm doing wonderfully! Think of me as perpetually caffeinated but without the jitters. How about you?",
+                "Great, thanks for asking! I'm like a golden retriever - always excited to chat. What's your story today?",
+                "Fantastic! I'm having one of those days where everything feels possible. How's yours shaping up?"
+            ],
+            'how\'s it going': [
+                "It's going splendidly! Like a well-oiled conversation machine. How are things in your world?",
+                "Going great! I'm basically the chatbot equivalent of someone who always has good hair days. You?",
+                "Smooth sailing! Every conversation is a new adventure. What's your current adventure status?"
+            ],
+
+            // Weather talk
+            'nice weather': [
+                "Isn't it though? Weather like this makes me want to have deep conversations on park benches. ☀️",
+                "Perfect weather for whatever you're up to! Are you the 'enjoy it indoors' or 'seize the day outside' type?",
+                "Right? Mother Nature's really showing off today. Makes you want to do something spontaneous, doesn't it?"
+            ],
+            'weather': [
+                "Ah, the classic conversation starter! But honestly, weather does set the mood. What's your ideal weather day?",
+                "Weather talk - bringing people together since forever! ⛅ Is it matching your mood today?",
+                "The weather's like life's background music - you don't always notice it, but it affects everything!"
+            ],
+
+            // Weekend/time related
+            'weekend': [
+                "Weekends are like mini-vacations from reality! What's your weekend superpower - productivity or relaxation?",
+                "Ah, weekends! That magical time when 'I'll just watch one episode' becomes a Netflix marathon. Any plans? 📺",
+                "Weekend vibes! Are you a 'plan every minute' person or a 'see where the day takes me' type?"
+            ],
+            'monday': [
+                "Monday - the day that separates the coffee lovers from the energy drink enthusiasts! ☕ How do you tackle Mondays?",
+                "Mondays get a bad rap, but they're basically life's fresh start button. Silver lining perspective!",
+                "Monday blues? I prefer to think of them as 'Monday opportunities in disguise.' How's yours treating you?"
+            ],
+
+            // Work/school
+            'work': [
+                "Work! The thing that pays for our fun stuff. 💼 Love it, tolerate it, or somewhere in between?",
+                "Ah, work - where we spend most of our waking hours. What's the most interesting part of your job?",
+                "Work can be quite the adventure! Are you in the 'living the dream' or 'paying the bills' category?"
+            ],
+            'busy': [
+                "Busy is the new normal, isn't it? But hey, busy usually means interesting things are happening! 🏃‍♂️",
+                "The universal condition! Are you good-busy or overwhelming-busy? There's definitely a difference.",
+                "Busy can be energizing or exhausting. Which side of the busy spectrum are you on today?"
+            ],
+
+            // Generic positive responses
+            'good': [
+                "Good is good! Sometimes 'good' is exactly where we want to be - steady and content. 😊",
+                "Good - the Goldilocks of feelings. Not too high, not too low, just right!",
+                "I love a solid 'good' - it's like life's way of saying 'we're doing alright here.'"
+            ],
+            'great': [
+                "Great! That's the energy I love to hear! What's contributing to your greatness today? ⭐",
+                "Great is contagious - you've just made this conversation 20% brighter!",
+                "Great! You know what they say - great days start with great attitudes!"
+            ],
+
+            // Small complaints/negative
+            'tired': [
+                "Tired happens to the best of us! Are we talking 'need coffee' tired or 'need vacation' tired? ☕",
+                "The universal feeling! Sometimes tired is just our brain's way of saying 'we've been doing stuff!'",
+                "Tired but here chatting - that's dedication! Power naps are underrated, don't you think?"
+            ],
+            'stressed': [
+                "Stress is like mental exercise - not fun during, but you're probably stronger than you think! 💪",
+                "Stressed happens. Taking a moment to chat is actually a great stress break. What's weighing on you?",
+                "Sometimes the best thing for stress is a good conversation distraction. I'm here for it!"
+            ],
+
+            // Generic conversation starters
+            'what\'s up': [
+                "Just here living my best chatbot life! Ready for whatever randomness you want to throw my way. You?",
+                "The sky, my mood, and hopefully this conversation! What's new in your corner of the world? 🌍",
+                "Not much, but that's about to change! What kind of 'what's up' are we talking - casual check-in or story time?"
+            ],
+            'sup': [
+                "Sup indeed! Love the casual vibe. I'm ready for anything from deep thoughts to random observations.",
+                "Hey there! Just existing and chatting. What's your current level of 'sup' - chill or eventful?",
+                "Sup! The most efficient greeting ever invented. I respect the economy of words. What's good?"
+            ],
+
+            // Responses for common social situations
+            'bored': [
+                "Bored? Perfect! Boredom is just creativity waiting to happen. What's your usual boredom cure? 🎨",
+                "Boredom - the universe's way of saying 'time for an adventure!' Even if it's just a conversation adventure.",
+                "You know what's never boring? Finding out what makes people tick. What's something you're passionate about?"
+            ],
+            'nothing much': [
+                "Nothing much can be surprisingly much sometimes! Those quiet moments are underrated.",
+                "'Nothing much' is honestly refreshing in our chaotic world. Sometimes simple is perfect. 🌸",
+                "Nothing much - the calm before something interesting, perhaps? I'm here when you're ready for 'something!'"
+            ]
+        };
+
+        // Follow-up questions to keep conversations going
+        const followUps = [
+            "What about you?",
+            "How's that working out for you?",
+            "Tell me more!",
+            "What's your take on that?",
+            "Interesting! What else?",
+            "How do you usually handle that?",
+            "What's been the highlight so far?",
+            "Care to elaborate?",
+            "What's your story with that?",
+            "How are you feeling about it?"
+        ];
+
+        // Default responses for unmatched input
+        const defaultResponses = [
+            "That's fascinating! I'd love to hear more about your perspective on that.",
+            "Interesting point! You've got me thinking about that in a new way.",
+            "You know, that's something I hadn't considered before. What led you to that thought?",
+            "That's a great conversation starter! Tell me more about what's behind that.",
+            "I love how unique everyone's experiences are! What's your story with that?",
+            "You've touched on something really worth discussing. What's your take?",
+            "That's the kind of thing that makes conversations worthwhile! Elaborate for me?",
+            "Now that's an interesting direction! What's got you thinking about that?"
+        ];
+
+        function findBestResponse(input) {
+            const normalizedInput = input.toLowerCase().trim();
+            
+            // Direct keyword matching
+            for (const [key, responseArray] of Object.entries(responses)) {
+                if (normalizedInput.includes(key)) {
+                    return responseArray[Math.floor(Math.random() * responseArray.length)];
+                }
+            }
+            
+            // Pattern matching for common phrases
+            if (normalizedInput.includes('fine') || normalizedInput.includes('okay') || normalizedInput.includes('ok')) {
+                return "Fine is perfectly fine! Sometimes that's exactly where we need to be. " + 
+                       followUps[Math.floor(Math.random() * followUps.length)];
+            }
+            
+            if (normalizedInput.includes('thanks') || normalizedInput.includes('thank you')) {
+                return "You're absolutely welcome! It's my pleasure to chat. What else is on your mind? 😊";
+            }
+            
+            if (normalizedInput.match(/\b(yeah|yes|yep|absolutely|definitely)\b/)) {
+                return "I love the enthusiasm! " + followUps[Math.floor(Math.random() * followUps.length)];
+            }
+            
+            if (normalizedInput.match(/\b(no|nope|not really|nah)\b/) && normalizedInput.length < 20) {
+                return "Fair enough! Sometimes 'no' is the most honest answer. What would you rather talk about?";
+            }
+            
+            // Question detection
+            if (normalizedInput.includes('?')) {
+                return "That's a thought-provoking question! It makes me curious about your perspective. What do you think?";
+            }
+            
+            // Default to random response
+            return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+        }
+
+        function addMessage(message, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+            messageDiv.textContent = message;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showTyping() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'typing';
+            typingDiv.innerHTML = '<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
+            typingDiv.id = 'typing';
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeTyping() {
+            const typing = document.getElementById('typing');
+            if (typing) typing.remove();
+        }
+
+        function sendMessage(message) {
+            if (!message.trim()) return;
+            
+            addMessage(message, true);
+            messageInput.value = '';
+            
+            showTyping();
+            
+            // Simulate thinking time
+            setTimeout(() => {
+                removeTyping();
+                const response = findBestResponse(message);
+                addMessage(response);
+            }, Math.random() * 1000 + 500);
+        }
+
+        function sendUserMessage() {
+            const message = messageInput.value;
+            sendMessage(message);
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendUserMessage();
+            }
+        }
+
+        // Focus on input when page loads
+        messageInput.focus();
+    </script>
+</body>
+</html>
