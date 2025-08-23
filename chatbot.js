@@ -9,7 +9,9 @@ let conversationContext = {
     timeOfDay: null,
     lastActivity: null,
     peopleInvolved: [],
-    intensityLevel: 'normal'
+    intensityLevel: 'normal',
+    messageCount: 0,
+    conversationEnded: false
 };
 
 // Load responses from JSON file when page loads
@@ -196,8 +198,49 @@ function analyzeMessage(message) {
     return analysis;
 }
 
+// Function to detect goodbye messages
+function isGoodbyeMessage(message) {
+    const lower = message.toLowerCase();
+    const goodbyeWords = [
+        'bye', 'goodbye', 'see you', 'talk later', 'gotta go', 'have to go',
+        'thanks for listening', 'thanks for the chat', 'take care', 'good night',
+        'goodnight', 'see ya', 'later', 'ttyl', 'chat later', 'peace out',
+        'im done', "i'm done", 'thats all', "that's all", 'thanks', 'thank you',
+        'appreciate it', 'helped a lot', 'feeling better', 'good talk'
+    ];
+    
+    return goodbyeWords.some(word => lower.includes(word)) && 
+           (lower.includes('thanks') || lower.includes('bye') || lower.includes('done') || 
+            lower.includes('later') || lower.includes('night') || lower.includes('go'));
+}
+
 // Function to get a response based on the analysis
 function getResponse(message, analysis) {
+    // Check if conversation should end
+    if (conversationContext.conversationEnded) {
+        return "Hope you have a wonderful rest of your day! 😊";
+    }
+    
+    // Check for goodbye messages
+    if (isGoodbyeMessage(message)) {
+        conversationContext.conversationEnded = true;
+        const goodbyes = responses.goodbye?.[currentGeneration]?.[currentMode];
+        if (goodbyes && goodbyes.length > 0) {
+            return goodbyes[Math.floor(Math.random() * goodbyes.length)];
+        }
+        return "Thanks for sharing your day with me! Take care and hope tomorrow is amazing! 😊";
+    }
+    
+    // Check conversation length limit (after 8 user messages)
+    if (conversationContext.messageCount >= 8) {
+        conversationContext.conversationEnded = true;
+        const limitResponses = responses.conversation_limit?.[currentGeneration];
+        if (limitResponses && limitResponses.length > 0) {
+            return limitResponses[Math.floor(Math.random() * limitResponses.length)];
+        }
+        return "We've had such a wonderful conversation! Thanks for sharing your day with me. Take care! 😊";
+    }
+    
     // If off-topic, redirect gently
     if (analysis.isOffTopic && conversationHistory.length > 0) {
         const redirects = responses.redirect || ["Let's get back to your day - how's it been?"];
@@ -445,8 +488,14 @@ function sendMessage() {
     
     if (!message) return;
     
-    // Add user message
+    // Check if conversation has ended
+    if (conversationContext.conversationEnded) {
+        return;
+    }
+    
+    // Add user message and increment counter
     addMessage(message, true);
+    conversationContext.messageCount++;
     input.value = '';
     
     // Show typing
@@ -463,8 +512,23 @@ function sendMessage() {
         const response = getResponse(message, analysis);
         addMessage(response);
         
+        // Disable input and suggestions if conversation ended
+        if (conversationContext.conversationEnded) {
+            const input = document.getElementById('messageInput');
+            const sendBtn = document.querySelector('.send-btn');
+            const suggestionsContainer = document.querySelector('.suggestions');
+            
+            if (input) {
+                input.disabled = true;
+                input.placeholder = "Thanks for chatting! Hope you have a great day! 😊";
+            }
+            if (sendBtn) sendBtn.disabled = true;
+            if (suggestionsContainer) suggestionsContainer.style.display = 'none';
+            return;
+        }
+        
         // Intelligently add follow-up questions based on context
-        if (Math.random() > 0.6 && responses?.followup) {
+        if (Math.random() > 0.6 && responses?.followup && !conversationContext.conversationEnded) {
             setTimeout(() => {
                 const followups = responses.followup;
                 let selectedFollowup;
