@@ -909,6 +909,128 @@
       "What was your support system like during that?",
       "How did you celebrate or process that afterward?",
       "What would you want someone in a similar situation to know?"
-    ]
+    ],
+    
+    "goodbye": {
+      "millennial": {
+        "books": [
+          "Thanks for sharing your story with me today! Every chapter matters, and I hope tomorrow's is even better.",
+          "It's been like reading a really good book - thanks for letting me be part of your narrative today!",
+          "Your day sounds like it deserves a bookmark. Take care and write some good pages tomorrow!",
+          "Thanks for the great conversation! May your next chapter be filled with plot twists in all the right ways.",
+          "It's been wonderful hearing about your day. Rest up for the next exciting chapter!",
+          "Thanks for letting me into your story today. Hope tomorrow brings you a bestseller kind of day!"
+        ],
+        "tv": [
+          "Thanks for letting me binge-watch your day with you! Hope tomorrow's episode is even better.",
+          "It's been like watching a really good show - thanks for sharing the behind-the-scenes with me!",
+          "Your day deserves a season renewal! Take care and make tomorrow's episode amazing.",
+          "Thanks for the great conversation! May tomorrow bring you main character energy all day long.",
+          "It's been wonderful hearing your stories. Hope you get some good rest before the next episode!",
+          "Thanks for sharing your day with me. Here's to tomorrow being your season finale moment!"
+        ],
+        "music": [
+          "Thanks for letting me hear the soundtrack of your day! Hope tomorrow's playlist is even better.",
+          "It's been like listening to a really good album - thanks for sharing the tracks with me!",
+          "Your day sounds like it deserves to be on repeat. Take care and compose something beautiful tomorrow!",
+          "Thanks for the great conversation! May tomorrow bring you all the good vibrations.",
+          "It's been wonderful hearing your rhythm. Hope you get some good rest before tomorrow's concert!",
+          "Thanks for sharing your day's melody with me. Here's to tomorrow being your chart-topper!"
+        ],
+        "gaming": [
+          "Thanks for letting me co-op through your day with you! Hope tomorrow brings you legendary loot.",
+          "It's been like watching a great speedrun - thanks for sharing the gameplay with me!",
+          "Your day sounds like it deserves a high score. Take care and may tomorrow be achievement-unlocked level!",
+          "Thanks for the great conversation! May tomorrow bring you power-ups and victory royales.",
+          "It's been wonderful hearing about your quests. Hope you get some good rest before the next level!",
+          "Thanks for sharing your day's adventure with me. Here's to tomorrow being your boss battle victory!"
+        ],
+        "sports": [
+          "Thanks for letting me be in your corner today! Hope tomorrow brings you championship energy.",
+          "It's been like watching a great game - thanks for sharing the play-by-play with me!",
+          "Your day sounds like it deserves a victory lap. Take care and may tomorrow be your MVP moment!",
+          "Thanks for the great conversation! May tomorrow bring you nothing but winning plays.",
+          "It's been wonderful hearing about your game. Hope you get some good rest before tomorrow's match!",
+          "Thanks for sharing your day's highlights with me. Here's to tomorrow being your gold medal day!"
+        ],
+        "tech": [
+          "Thanks for letting me debug your day with you! Hope tomorrow runs on the smoothest update.",
+          "It's been like reviewing great code - thanks for sharing the process with me!",
+          "Your day sounds like it deserves a successful deployment. Take care and may tomorrow be bug-free!",
+          "Thanks for the great conversation! May tomorrow bring you optimal performance and no crashes.",
+          "It's been wonderful hearing about your system. Hope you get some good rest before tomorrow's boot-up!",
+          "Thanks for sharing your day's algorithm with me. Here's to tomorrow being your breakthrough innovation!"
+        ]
+      },
+      "genz": {
+        "books": [
+          "Thanks for spilling all the tea about your day bestie! Hope tomorrow's chapter is even more iconic!",
+          "Not you giving me the best storytelling session ever! Your day was literally a whole mood!",
+          "Bestie really said 'let me share my main character moment' and we were here for it! Rest up!",
+          "Thanks for letting me into your narrative arc today! Tomorrow better bring you protagonist energy!",
+          "Your day was giving bestseller vibes and I'm so here for it! Take care bestie!",
+          "Thanks for the amazing story time! May tomorrow be your happy ending come true!"
+        ],
+        "tv": [
+          "Thanks for letting me binge your day with you bestie! Hope tomorrow's episode is even more fire!",
+          "Not you giving me the best content ever! Your day was literally cinema!",
+          "Bestie really said 'let me give you the behind-the-scenes' and we were subscribed! Rest up!",
+          "Thanks for sharing your main character moments today! Tomorrow better be season finale energy!",
+          "Your day was giving premium content vibes and I'm so here for it! Take care bestie!",
+          "Thanks for the amazing show! May tomorrow be your award-winning episode!"
+        ],
+        "music": [
+          "Thanks for letting me vibe to your day's soundtrack bestie! Hope tomorrow hits even harder!",
+          "Not you giving me the best playlist ever! Your day was literally a whole bop!",
+          "Bestie really said 'let me drop my daily anthem' and we were dancing! Rest up!",
+          "Thanks for sharing your day's rhythm with me! Tomorrow better be chart-topping energy!",
+          "Your day was giving festival headliner vibes and I'm so here for it! Take care bestie!",
+          "Thanks for the amazing concert! May tomorrow be your Grammy-winning performance!"
+        ],
+        "gaming": [
+          "Thanks for letting me co-op your day bestie! Hope tomorrow brings you legendary drops!",
+          "Not you giving me the best gameplay commentary ever! Your day was literally poggers!",
+          "Bestie really said 'watch me speedrun life' and we were here for it! Rest up!",
+          "Thanks for sharing your epic quests today! Tomorrow better be achievement unlocked energy!",
+          "Your day was giving pro gamer vibes and I'm so here for it! Take care bestie!",
+          "Thanks for the amazing session! May tomorrow be your world record day!"
+        ],
+        "sports": [
+          "Thanks for letting me cheer you on today bestie! Hope tomorrow brings you GOAT energy!",
+          "Not you giving me the best game recap ever! Your day was literally championship level!",
+          "Bestie really said 'watch me dominate' and we were here for it! Rest up!",
+          "Thanks for sharing your winning moments today! Tomorrow better be MVP energy!",
+          "Your day was giving Olympic athlete vibes and I'm so here for it! Take care bestie!",
+          "Thanks for the amazing performance! May tomorrow be your gold medal moment!"
+        ],
+        "tech": [
+          "Thanks for letting me debug your day bestie! Hope tomorrow runs on the best optimization!",
+          "Not you giving me the best system update ever! Your day was literally next-gen!",
+          "Bestie really said 'let me innovate life' and we were here for it! Rest up!",
+          "Thanks for sharing your breakthrough moments today! Tomorrow better be viral energy!",
+          "Your day was giving tech CEO vibes and I'm so here for it! Take care bestie!",
+          "Thanks for the amazing innovation! May tomorrow be your revolutionary update!"
+        ]
+      }
+    },
+    
+    "conversation_limit": {
+      "millennial": [
+        "We've had such a great conversation! I hope talking through your day helped. Take care of yourself!",
+        "It's been wonderful chatting with you about your day. Hope you have a peaceful evening/night!",
+        "Thanks for sharing so much with me today. You've got this - take care and rest well!",
+        "What a lovely conversation we've had! Hope processing your day was helpful. Sweet dreams!",
+        "I've really enjoyed hearing about your day. Take care of yourself and have a great rest of your day/night!",
+        "Thanks for letting me be part of your day's reflection. Hope tomorrow brings you exactly what you need!"
+      ],
+      "genz": [
+        "Bestie we've been chatting for a while and it's been so good! Hope this helped you process everything!",
+        "Not us having the most therapeutic conversation ever! Take care of yourself bestie!",
+        "We really went deep today and I'm here for it! Hope you get some good rest after all this!",
+        "Bestie really said 'let me unpack my whole day' and we were the perfect therapist! Rest up!",
+        "This conversation was giving main character self-care vibes! Take care bestie!",
+        "Thanks for trusting me with all your thoughts today! Hope tomorrow is everything you need it to be!"
+      ]
+    }
   }
 }
