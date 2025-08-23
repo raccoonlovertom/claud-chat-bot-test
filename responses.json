@@ -1,8 +1,50 @@
 {
   "keywords": {
-    "positive": ["fun", "great", "amazing", "good", "awesome", "happy", "excited", "love", "best", "wonderful", "fantastic", "enjoyed", "nice", "perfect", "blessed"],
-    "negative": ["bad", "terrible", "awful", "hate", "worst", "annoying", "frustrated", "angry", "sad", "upset", "stressed", "anxious", "exhausted", "tired", "drained"],
-    "neutral": ["okay", "fine", "alright", "normal", "usual", "regular", "meh", "whatever", "decent"]
+    "positive": ["fun", "great", "amazing", "good", "awesome", "happy", "excited", "love", "best", "wonderful", "fantastic", "enjoyed", "nice", "perfect", "blessed", "thrilled", "delighted", "ecstatic", "elated", "joyful", "cheerful", "optimistic", "proud", "accomplished", "successful", "brilliant", "excellent", "superb", "marvelous", "outstanding", "fabulous", "incredible", "phenomenal", "spectacular", "magnificent", "glorious", "divine", "blissful", "euphoric", "overjoyed", "triumphant", "victorious", "winning", "crushing it", "nailed it", "killed it", "rocking", "slaying", "fire", "lit", "epic", "legendary", "iconic", "vibing", "thriving", "living", "blessed up", "grateful", "thankful", "appreciative", "content", "satisfied", "fulfilled", "accomplished", "motivated", "inspired", "energized", "pumped", "hyped", "stoked", "psyched"],
+    "negative": ["bad", "terrible", "awful", "hate", "worst", "annoying", "frustrated", "angry", "sad", "upset", "stressed", "anxious", "exhausted", "tired", "drained", "depressed", "miserable", "horrible", "disgusting", "furious", "livid", "enraged", "pissed", "irritated", "agitated", "bothered", "troubled", "worried", "concerned", "fearful", "scared", "terrified", "panicked", "overwhelmed", "defeated", "hopeless", "helpless", "worthless", "useless", "broken", "shattered", "crushed", "devastated", "heartbroken", "lonely", "isolated", "abandoned", "rejected", "disappointed", "let down", "betrayed", "hurt", "wounded", "damaged", "traumatized", "suffering", "agonizing", "tormented", "miserable", "wretched", "pathetic", "doomed", "cursed", "jinxed", "unlucky", "unfortunate", "tragic", "disastrous", "catastrophic", "ruined", "destroyed", "failed", "failing", "struggling", "drowning", "sinking", "lost", "confused", "bewildered", "perplexed", "puzzled", "stumped", "stuck", "trapped", "cornered", "pressured", "suffocated", "choked", "strangled", "squeezed", "drained", "depleted", "empty", "hollow", "numb", "dead inside"],
+    "neutral": ["okay", "fine", "alright", "normal", "usual", "regular", "meh", "whatever", "decent", "average", "mediocre", "so-so", "fair", "moderate", "standard", "typical", "ordinary", "common", "routine", "mundane", "boring", "dull", "plain", "simple", "basic", "nothing special", "unremarkable", "forgettable", "bland", "vanilla", "middle", "in between", "balanced", "stable", "steady", "consistent", "predictable", "expected", "unsurprising", "standard", "status quo", "same old", "business as usual", "par for the course", "run of the mill", "garden variety", "cookie cutter", "textbook", "by the book", "conventional", "traditional", "classic", "standard issue"],
+    
+    "emotions_intense": {
+      "joy": ["ecstatic", "euphoric", "elated", "overjoyed", "thrilled", "exhilarated", "blissful", "rapturous", "jubilant", "triumphant"],
+      "anger": ["furious", "livid", "enraged", "irate", "incensed", "seething", "boiling", "raging", "infuriated", "ballistic"],
+      "sadness": ["devastated", "heartbroken", "crushed", "shattered", "destroyed", "broken", "inconsolable", "grief-stricken", "despairing", "anguished"],
+      "fear": ["terrified", "petrified", "horrified", "panic-stricken", "paralyzed", "frozen", "trembling", "shaking", "nightmare", "phobic"],
+      "surprise": ["shocked", "stunned", "flabbergasted", "astounded", "amazed", "blown away", "mind-blown", "speechless", "floored", "dumbfounded"]
+    },
+    
+    "activities": {
+      "work": ["work", "job", "office", "meeting", "boss", "colleague", "coworker", "project", "deadline", "presentation", "interview", "promotion", "salary", "overtime", "conference", "training", "team", "client", "customer", "business", "corporate", "company", "startup", "freelance", "remote", "wfh", "commute", "career", "professional"],
+      "social": ["friends", "party", "hangout", "dinner", "lunch", "coffee", "drinks", "bar", "club", "concert", "movie", "date", "relationship", "family", "gathering", "celebration", "birthday", "wedding", "anniversary", "reunion", "networking", "socializing", "chatting", "talking", "laughing", "joking"],
+      "health": ["doctor", "hospital", "sick", "ill", "medicine", "therapy", "workout", "gym", "exercise", "running", "walking", "yoga", "meditation", "diet", "healthy", "unhealthy", "pain", "headache", "fever", "cold", "flu", "allergies", "injury", "surgery", "recovery", "healing", "wellness", "fitness", "strength", "energy"],
+      "hobbies": ["reading", "writing", "drawing", "painting", "music", "singing", "dancing", "cooking", "baking", "gardening", "photography", "travel", "hiking", "camping", "fishing", "hunting", "sports", "gaming", "coding", "programming", "crafting", "knitting", "sewing", "collecting", "building", "creating", "making"],
+      "education": ["school", "college", "university", "class", "teacher", "professor", "student", "homework", "assignment", "test", "exam", "grade", "study", "learning", "research", "thesis", "dissertation", "degree", "graduation", "semester", "quarter", "lecture", "seminar", "lab", "library", "textbook"],
+      "home": ["home", "house", "apartment", "room", "kitchen", "bedroom", "bathroom", "living room", "cleaning", "organizing", "decorating", "renovating", "moving", "packing", "unpacking", "furniture", "appliances", "maintenance", "repairs", "chores", "laundry", "dishes", "cooking", "relaxing", "resting", "sleeping"],
+      "shopping": ["shopping", "store", "mall", "online", "buying", "purchasing", "spending", "money", "budget", "expensive", "cheap", "sale", "discount", "deal", "bargain", "clothes", "shoes", "groceries", "food", "restaurant", "delivery", "takeout", "ordering"],
+      "technology": ["computer", "laptop", "phone", "smartphone", "internet", "wifi", "app", "software", "website", "social media", "facebook", "instagram", "twitter", "tiktok", "youtube", "netflix", "streaming", "gaming", "video games", "tech", "digital", "online", "virtual", "ai", "robot", "automation"],
+      "transportation": ["car", "driving", "traffic", "bus", "train", "subway", "uber", "lyft", "taxi", "bike", "walking", "commute", "travel", "trip", "vacation", "flight", "airport", "plane", "road trip", "gas", "parking", "mechanic", "repair"]
+    },
+    
+    "time_references": {
+      "morning": ["morning", "am", "early", "dawn", "sunrise", "breakfast", "coffee", "wake up", "woke up", "alarm", "start", "beginning"],
+      "afternoon": ["afternoon", "pm", "lunch", "noon", "midday", "middle", "work", "busy", "productive", "meeting"],
+      "evening": ["evening", "night", "dinner", "sunset", "end", "finish", "tired", "relaxing", "winding down", "home"],
+      "weekend": ["weekend", "saturday", "sunday", "off", "free", "relax", "fun", "plans", "sleep in", "lazy"],
+      "weekday": ["monday", "tuesday", "wednesday", "thursday", "friday", "weekday", "work", "busy", "routine", "schedule"]
+    },
+    
+    "relationships": {
+      "family": ["mom", "dad", "mother", "father", "parent", "parents", "sibling", "brother", "sister", "son", "daughter", "child", "children", "kids", "family", "relative", "cousin", "aunt", "uncle", "grandma", "grandpa", "grandmother", "grandfather"],
+      "romantic": ["boyfriend", "girlfriend", "partner", "spouse", "husband", "wife", "dating", "relationship", "love", "romance", "valentine", "anniversary", "wedding", "marriage", "engaged", "proposal"],
+      "friends": ["friend", "friends", "buddy", "pal", "bestie", "bff", "crew", "squad", "gang", "group", "circle", "social", "hangout", "catch up"],
+      "work": ["boss", "manager", "supervisor", "colleague", "coworker", "teammate", "client", "customer", "employee", "staff", "team", "department"],
+      "professional": ["doctor", "teacher", "lawyer", "therapist", "counselor", "trainer", "coach", "mentor", "advisor", "consultant", "specialist", "expert"]
+    },
+    
+    "weather": ["sunny", "cloudy", "rainy", "stormy", "snowy", "hot", "cold", "warm", "cool", "humid", "dry", "windy", "calm", "beautiful", "awful", "perfect", "terrible", "weather", "temperature", "climate", "season", "spring", "summer", "fall", "winter"],
+    
+    "food_mood": ["hungry", "starving", "full", "stuffed", "craving", "delicious", "tasty", "yummy", "gross", "disgusting", "spicy", "sweet", "salty", "bitter", "sour", "fresh", "stale", "cooking", "eating", "drinking", "meal", "snack", "breakfast", "lunch", "dinner"],
+    
+    "energy_levels": ["energetic", "tired", "exhausted", "drained", "pumped", "hyped", "motivated", "lazy", "sluggish", "alert", "awake", "sleepy", "drowsy", "refreshed", "recharged", "burned out", "wiped out", "beat", "pooped", "zonked"]
   },
   
   "responses": {
@@ -11,34 +53,184 @@
         "books": [
           "That sounds amazing! Very 'choose your own adventure' but you picked the good path today.",
           "Love that energy! What made it so {keyword}?",
-          "You're writing a good chapter today! Tell me more about what happened."
+          "You're writing a good chapter today! Tell me more about what happened.",
+          "Plot twist: your day was actually awesome! What's the story behind it?",
+          "Sounds like you're the protagonist of a feel-good novel today! What's the next chapter?",
+          "That's giving me all the happy ending vibes! What made it turn out so well?",
+          "Your day sounds like it belongs in the 'favorites' shelf! What was the best part?",
+          "Very 'page-turner' energy - I need to know what happens next!",
+          "Sounds like you're writing your own success story! What made today so special?",
+          "That's the kind of plot development we love to see! Tell me everything!",
+          "Your day is giving bestseller vibes! What was the climax?",
+          "Sounds like today deserves a five-star review! What made it shine?",
+          "That's some award-winning content right there! What was your favorite scene?",
+          "Your life is reading like a really good book today! What's the backstory?",
+          "Sounds like you're in the middle of an uplifting story arc! What happened?",
+          "That chapter of your day sounds incredible! What made it so memorable?"
         ],
         "tv": [
           "That's what we like to hear! Very 'treat yourself' vibes today.",
           "Living your best life! What made today so {keyword}?",
-          "Main character energy right there! What was the highlight?"
+          "Main character energy right there! What was the highlight?",
+          "Sounds like you're having a season finale kind of day! What made it epic?",
+          "That's giving me all the good Netflix vibes! What was your favorite episode?",
+          "Very 'binge-worthy' day you're having! What's the plot?",
+          "Sounds like today deserves its own spin-off! What made it so special?",
+          "That's the kind of content we subscribe for! Tell me the whole story!",
+          "Your day is giving award-winning series vibes! What was the best scene?",
+          "Sounds like you're living in a feel-good show! What's the storyline?",
+          "That's some premium content right there! What made today so great?",
+          "Very 'must-see TV' energy! What was the highlight reel?",
+          "Sounds like today's episode was a real crowd-pleaser! What happened?",
+          "That's giving me all the comfort show vibes! What made it cozy?",
+          "Your day sounds like it needs a sequel! What made it so good?",
+          "Very 'golden age of television' day you're having! What's the story?"
         ],
         "music": [
           "You're hitting all the right notes today! What made it so {keyword}?",
           "That's the vibe! Tell me what got you feeling this good.",
-          "Sounds like today's soundtrack is all major chords! What happened?"
+          "Sounds like today's soundtrack is all major chords! What happened?",
+          "Your day is giving me all the feel-good playlist vibes! What's the story?",
+          "Sounds like you're living in your own music video today! What's the theme?",
+          "That's the kind of energy that deserves its own album! What made it so good?",
+          "Your day sounds like it's topping the charts! What was the hit single?",
+          "Very 'concert in the park' vibes! What made today so harmonious?",
+          "Sounds like you're conducting your own symphony today! What's the melody?",
+          "That's giving me all the summer anthem energy! What happened?",
+          "Your day is like a perfectly curated playlist! What was your favorite track?",
+          "Sounds like today deserves a Grammy! What made it so award-worthy?",
+          "That's the kind of rhythm we love to hear! What set the beat?",
+          "Very 'acoustic session' vibes - intimate and beautiful! What's the story?",
+          "Your day sounds like it needs to be on repeat! What made it so catchy?",
+          "Sounds like you're living your own personal concert! What was the encore?"
+        ],
+        "gaming": [
+          "Sounds like you're winning at life today! What was your power-up moment?",
+          "That's some legendary loot right there! What made today so epic?",
+          "Achievement unlocked: Having an awesome day! What was the quest?",
+          "Sounds like you leveled up today! What gave you the XP boost?",
+          "That's giving me all the victory royale vibes! What was your strategy?",
+          "Your day sounds like a perfect speedrun! What made it so efficient?",
+          "Very 'boss battle conquered' energy! What was your secret weapon?",
+          "Sounds like you found the cheat code for a great day! What was it?",
+          "That's some high-score material right there! What was the game-changer?",
+          "Your day is giving me all the co-op success vibes! Who was on your team?"
+        ],
+        "sports": [
+          "Sounds like you're having a championship day! What was your winning play?",
+          "That's some MVP-level energy! What made today so victorious?",
+          "Your day sounds like a perfect game! What was your home run moment?",
+          "Very 'playoffs bound' vibes! What put you in the lead?",
+          "Sounds like you're on a winning streak! What's your secret?",
+          "That's giving me all the gold medal energy! What was your personal best?",
+          "Your day sounds like it deserves a victory lap! What was the highlight?",
+          "Very 'hall of fame' performance today! What made it legendary?",
+          "Sounds like you scored big today! What was the game-winning moment?",
+          "That's some all-star level content! What was your standout play?"
+        ],
+        "tech": [
+          "Your day sounds like it's running on the latest update! What got optimized?",
+          "That's some premium subscription energy! What features unlocked today?",
+          "Sounds like you debugged life today! What was the successful patch?",
+          "Very 'beta testing approved' vibes! What new feature are you excited about?",
+          "Your day sounds like it has excellent user experience! What made it so smooth?",
+          "That's giving me all the successful deployment energy! What went live?",
+          "Sounds like your day passed all the quality tests! What was the breakthrough?",
+          "Very 'startup success story' vibes! What was your minimum viable day?",
+          "Your day sounds like it's trending on the algorithm! What made it viral?",
+          "That's some next-generation technology right there! What was revolutionary?"
         ]
       },
       "genz": {
         "books": [
           "Okay, you're literally thriving! Spill the tea about what made it so {keyword}!",
           "No but that's actually so good! What happened bestie?",
-          "You're giving main character and I'm here for it! Details please!"
+          "You're giving main character and I'm here for it! Details please!",
+          "Bestie said 'plot armor activated' today! What's the lore behind this?",
+          "You're literally living in your character development arc! What's the backstory?",
+          "Not you having the best day ever! The plot is plotting! What happened?",
+          "You understood the assignment and then some! What was the secret sauce?",
+          "Okay but this is giving fanfiction-level perfect day vibes! Spill everything!",
+          "You're really out here being the moment! What made today iconic?",
+          "That's so valid bestie! Your day said 'I choose happiness' and we love that!",
+          "You're giving protagonist energy and it's everything! What was your quest today?",
+          "Not your day being a whole mood! What chapter are we in right now?",
+          "You said 'today will be different' and it WAS! What made it hit?",
+          "That's actually so wholesome! Your day is giving cozy fantasy vibes!",
+          "You're literally glowing up in real time! What was the glow-up moment?",
+          "Your day really said 'happy ending loading' and delivered! What's the story?"
         ],
         "tv": [
           "That's giving good vibes only! What made today hit different?",
           "Period! We love to see it! What made it so {keyword}?",
-          "You understood the assignment today! Tell me everything!"
+          "You understood the assignment today! Tell me everything!",
+          "Your day really said 'I'm the main character' and we're here for it!",
+          "That's giving season finale energy! What was the plot twist?",
+          "Not you living your best life! What episode are we watching?",
+          "You're serving content and we're subscribed! What's the storyline?",
+          "That's actually cinema! Your day deserves its own Netflix series!",
+          "You're giving award show speech vibes! What do you want to thank?",
+          "Your day is trending on all platforms! What made it go viral?",
+          "That's some premium content right there! What was the highlight reel?",
+          "You're literally the moment bestie! What made today iconic?",
+          "Not your day being a whole cultural reset! What happened?",
+          "That's giving comfort show vibes and we need that energy!",
+          "You're really out here creating content! What was the best scene?",
+          "Your day said 'I'm that girl' and honestly? Valid! What made it special?"
         ],
         "music": [
           "Okay but that's actually fire! What made today so {keyword}?",
           "You're really out here living! Drop the details!",
-          "That hits different! What's got you feeling so good?"
+          "That hits different! What's got you feeling so good?",
+          "Your day is giving main character playlist vibes! What's the anthem?",
+          "Not you having the most aesthetic day ever! What's the soundtrack?",
+          "That's actually so harmonious bestie! What set the vibe?",
+          "You're serving vocals and we're here for the performance! What happened?",
+          "Your day really said 'I'm a bop' and it delivered! What was the hook?",
+          "That's giving concert energy! What was your favorite song today?",
+          "You're literally vibing and it shows! What's got you feeling this way?",
+          "Not your day being a whole cultural moment! What made it iconic?",
+          "That's some chart-topping content! What was the number one hit?",
+          "You're giving festival headliner energy! What was the setlist?",
+          "Your day is actually a whole mood! What's the genre we're working with?",
+          "That's so valid! Your day deserves to be on repeat! What made it catchy?",
+          "You're literally the moment! What made today's soundtrack so perfect?"
+        ],
+        "gaming": [
+          "Bestie really said 'speedrun life' and got the world record! What was your strat?",
+          "Not you absolutely crushing it! What achievement did you unlock?",
+          "You're giving pro gamer energy! What was your power play today?",
+          "That's actually so poggers! What made today's gameplay legendary?",
+          "You understood the meta and it shows! What was your secret weapon?",
+          "Your day really said 'clutch moment activated'! What was the play?",
+          "Not you having main character energy in your own game! What's the quest?",
+          "That's giving victory royale vibes! What was your winning strategy?",
+          "You're literally carrying the team today! What made you MVP?",
+          "Your day is giving flawless victory energy! What was the combo?"
+        ],
+        "sports": [
+          "Bestie really said 'I'm the GOAT' and meant it! What was your winning moment?",
+          "Not you absolutely dominating today! What sport are we playing?",
+          "You're giving championship energy! What was your gold medal moment?",
+          "That's actually so iconic! Your day deserves a highlight reel!",
+          "You understood the game and played it perfectly! What was the strategy?",
+          "Your day really said 'personal best incoming' and delivered!",
+          "Not you having hall of fame level performance! What made it legendary?",
+          "That's giving Olympic athlete vibes! What was your record-breaking moment?",
+          "You're literally unstoppable today! What was your secret training?",
+          "Your day is giving victory lap energy! What made you cross the finish line?"
+        ],
+        "tech": [
+          "Your day really said 'update successful' and we love that for you!",
+          "Not you optimizing life like it's code! What was the breakthrough?",
+          "You're giving tech CEO energy! What innovation happened today?",
+          "That's actually so next-level! Your day is giving future vibes!",
+          "You understood the algorithm and it shows! What made today trend?",
+          "Your day really said 'bug fixed, feature added' and it's perfect!",
+          "Not you having the most efficient day ever! What was your hack?",
+          "That's giving startup success story vibes! What was your MVP moment?",
+          "You're literally disrupting the industry of having bad days!",
+          "Your day is giving beta testing approved energy! What's the new feature?"
         ]
       }
     },
@@ -48,34 +240,184 @@
         "books": [
           "Oh no, that sounds rough. Like one of those chapters you just need to get through.",
           "I'm sorry today was {keyword}. Want to talk about what happened?",
-          "Some days are just first drafts, not final copies. What made it tough?"
+          "Some days are just first drafts, not final copies. What made it tough?",
+          "Ugh, sounds like you're in the middle of a really challenging plot. What's the conflict?",
+          "That sounds like one of those books where everything goes wrong. What's the antagonist?",
+          "I'm sorry your day reads like a tragedy right now. Want to edit this chapter together?",
+          "Sounds like you're dealing with some serious character development today. What's the struggle?",
+          "That's giving me 'dark night of the soul' vibes. What made it so heavy?",
+          "Your day sounds like it needs a better editor. What went off-script?",
+          "I'm sorry today feels like a disappointing sequel. What didn't live up to expectations?",
+          "Sounds like you're in the middle of a really tough story arc. What's the challenge?",
+          "That sounds exhausting, like reading a really dense academic text. What's draining you?",
+          "I'm sorry your day feels like a book you want to put down. What's making it hard?",
+          "Sounds like today's chapter had too many plot holes. What's not making sense?",
+          "That's giving me 'unreliable narrator' energy. What's confusing about today?",
+          "I'm sorry you're dealing with such a difficult storyline. What's the main conflict?"
         ],
         "tv": [
           "Ugh, sounds like a episode you'd want to skip. What made it so {keyword}?",
           "That's rough. Not every day can be a season finale. What happened?",
-          "Sorry you're having a {keyword} day. Want to vent about it?"
+          "Sorry you're having a {keyword} day. Want to vent about it?",
+          "Sounds like today was a real 'jump the shark' moment. What went wrong?",
+          "That's giving me cancelled-after-one-season vibes. What made it so disappointing?",
+          "I'm sorry your day feels like a really bad rerun. What keeps repeating?",
+          "Sounds like you're stuck in a boring filler episode. What's dragging on?",
+          "That's rough - like when your favorite show gets a terrible finale. What let you down?",
+          "I'm sorry today feels like a show that got too many seasons. What's worn you out?",
+          "Sounds like you need to change the channel on this day. What's not working?",
+          "That's giving me 'plot armor failed' energy. What unexpected thing happened?",
+          "I'm sorry your day feels like a cliffhanger with no resolution. What's hanging?",
+          "Sounds like today had terrible writing. What didn't make sense?",
+          "That's rough - like watching a show with no subtitles. What's confusing you?",
+          "I'm sorry you're dealing with such a dramatic episode. What's the crisis?",
+          "Sounds like today needs a director's cut to make it better. What would you change?"
         ],
         "music": [
           "Sounds like today's in a minor key. What made it so {keyword}?",
           "That's tough. What's got you feeling this way?",
-          "Not every day can be a hit single. What went wrong?"
+          "Not every day can be a hit single. What went wrong?",
+          "I'm sorry your day sounds like a really sad ballad. What's breaking your heart?",
+          "Sounds like today's playlist is all melancholy songs. What's bringing you down?",
+          "That's giving me 'broken record' vibes - stuck on repeat. What keeps happening?",
+          "I'm sorry your day feels off-beat. What's throwing off your rhythm?",
+          "Sounds like you're dealing with some serious dissonance today. What's clashing?",
+          "That's rough - like when your favorite song gets overplayed. What's exhausting you?",
+          "I'm sorry today sounds like static instead of music. What's creating the noise?",
+          "Sounds like your day needs a better remix. What would you change about it?",
+          "That's giving me 'album skip' energy. What tracks are you trying to avoid?",
+          "I'm sorry you're stuck in a musical rut today. What's feeling repetitive?",
+          "Sounds like today's tempo is all wrong. Too fast? Too slow? What's off?",
+          "That's tough - like trying to dance to a song with no beat. What's missing?",
+          "I'm sorry your day feels like a concert with bad acoustics. What's not coming through?"
+        ],
+        "gaming": [
+          "Sounds like today was full of glitches. What kept going wrong?",
+          "That's rough - like getting stuck on the hardest boss fight. What's the challenge?",
+          "I'm sorry your day feels like a game with terrible controls. What's frustrating you?",
+          "Sounds like you're dealing with some serious lag today. What's slowing you down?",
+          "That's giving me 'game over' vibes. What made you want to restart?",
+          "I'm sorry today feels like a pay-to-win game when you're broke. What's unfair?",
+          "Sounds like you're stuck in a really difficult level. What's the obstacle?",
+          "That's tough - like when the game crashes right before you save. What did you lose?",
+          "I'm sorry your day feels like playing on expert mode. What's making it so hard?",
+          "Sounds like today had way too many side quests. What's overwhelming you?"
+        ],
+        "sports": [
+          "Sounds like today was a tough loss. What didn't go according to plan?",
+          "That's rough - like being benched when you wanted to play. What held you back?",
+          "I'm sorry your day feels like a game in overtime that you're losing. What's exhausting?",
+          "Sounds like you're dealing with some serious penalties today. What went against you?",
+          "That's giving me 'injury timeout' vibes. What's hurting?",
+          "I'm sorry today feels like training camp from hell. What's pushing you too hard?",
+          "Sounds like you're facing a really tough opponent today. What's the challenge?",
+          "That's tough - like missing the winning shot. What opportunity slipped away?",
+          "I'm sorry your day feels like playing in terrible weather. What conditions are rough?",
+          "Sounds like today needs a better game plan. What strategy isn't working?"
+        ],
+        "tech": [
+          "Sounds like your day is running on dial-up speed. What's slowing everything down?",
+          "That's rough - like dealing with a blue screen of death. What crashed today?",
+          "I'm sorry your day feels like it's stuck in an infinite loop. What keeps repeating?",
+          "Sounds like you're dealing with some serious bugs today. What's not working right?",
+          "That's giving me 'server down' vibes. What's not connecting?",
+          "I'm sorry today feels like using Internet Explorer in 2024. What's painfully slow?",
+          "Sounds like your day needs a hard reset. What's frozen up?",
+          "That's tough - like when your phone dies at 1%. What ran out of power?",
+          "I'm sorry your day feels like a software update that broke everything. What got worse?",
+          "Sounds like today is giving you way too many error messages. What's not computing?"
         ]
       },
       "genz": {
         "books": [
           "That's not it bestie. What made today so {keyword}?",
           "Oh no, that's actually tragic. What happened?",
-          "Big oof energy. Want to talk about what made it {keyword}?"
+          "Big oof energy. Want to talk about what made it {keyword}?",
+          "Bestie, your day said 'villain arc activated' and that's not the vibe! What happened?",
+          "Not you having the worst character development today! What's the plot doing to you?",
+          "That's actually so not it. Your day is giving dystopian novel vibes. What's wrong?",
+          "Bestie really got the bad ending today. What choices led to this?",
+          "Your day said 'angst era incoming' and honestly we didn't ask for this!",
+          "That's giving tragic backstory energy and I'm concerned! What's the lore?",
+          "Not your day being a whole emotional damage speedrun! What happened bestie?",
+          "Your day really said 'choose violence' and picked you! What's attacking you?",
+          "That's actually so unfair! Your day is giving 'plot against the protagonist' vibes!",
+          "Bestie's really going through it and that's not okay! What's the conflict?",
+          "Your day said 'trauma dump incoming' and we need to unpack this! What's heavy?",
+          "That's giving 'unreliable narrator having a breakdown' energy! What's confusing?",
+          "Not you living in the darkest timeline today! What made it so rough bestie?"
         ],
         "tv": [
           "That's not the vibe we wanted. What made it so {keyword}?",
           "Yikes, that sounds rough. Spill, what happened?",
-          "That's a no from me. What made today {keyword}?"
+          "That's a no from me. What made today {keyword}?",
+          "Bestie your day said 'cancel this series' and we're not having it! What went wrong?",
+          "Not you living through the worst episode ever! What's the terrible plot?",
+          "Your day is giving 'show got cancelled after one season' energy and that's tragic!",
+          "That's actually so not it! Your day deserves better writing! What's the bad storyline?",
+          "Bestie really got the villain treatment today and that's not fair! What happened?",
+          "Your day said 'plot twist: everything sucks' and honestly rude! What's the drama?",
+          "That's giving 'jumped the shark' vibes and we hate to see it! What ruined it?",
+          "Not your day being a whole disaster movie! What's the catastrophe bestie?",
+          "Your day really said 'tragedy genre only' and we need a genre switch! What's sad?",
+          "That's giving 'cliffhanger with no resolution' energy and it's frustrating!",
+          "Bestie's day is serving chaos and not the fun kind! What's out of control?",
+          "Your day said 'bad finale energy' and we demand a rewrite! What disappointed you?",
+          "That's actually so unfair! Your day deserves a better director! What needs fixing?"
         ],
         "music": [
           "That's not hitting right. What made today so {keyword}?",
           "Oh that's actually sad. What's got you feeling {keyword}?",
-          "Not the remix we wanted. What happened?"
+          "Not the remix we wanted. What happened?",
+          "Bestie your day said 'sad girl hours only' and we need to change the playlist!",
+          "Not you having the most tragic soundtrack today! What's bringing the energy down?",
+          "Your day is giving 'broken record stuck on sad' vibes and that's not it!",
+          "That's actually so off-key! Your day needs better harmonies! What's clashing?",
+          "Bestie really got the worst possible setlist today! What songs are playing?",
+          "Your day said 'minor key depression era' and honestly we need major chords!",
+          "That's giving 'concert cancelled' energy and we're disappointed! What fell through?",
+          "Not your day being a whole emotional breakdown playlist! What's hitting different?",
+          "Your day really said 'skip to the sad songs' and that's not the vibe!",
+          "That's giving 'headphones broken during your favorite song' energy! What's ruined?",
+          "Bestie's day is serving discord and not the app! What's creating chaos?",
+          "Your day said 'volume down on happiness' and we need to turn it back up!",
+          "That's actually so not the mood! Your day deserves a better DJ! What's wrong?"
+        ],
+        "gaming": [
+          "Bestie really got the worst RNG today! What's the bad luck streak?",
+          "Not you getting griefed by life itself! What's trolling you today?",
+          "Your day said 'skill issue' and that's actually so rude! What's the unfair challenge?",
+          "That's giving 'rage quit incoming' vibes and honestly valid! What's frustrating you?",
+          "Bestie's day is lagging worse than dial-up internet! What's slowing you down?",
+          "Your day really said 'game over, no continues' and that's not fair!",
+          "That's giving 'stuck on tutorial level' energy! What basic thing is hard today?",
+          "Not you dealing with the worst possible team today! Who's letting you down?",
+          "Your day said 'server crash during boss fight' and we're so sorry bestie!",
+          "That's actually so toxic! Your day needs better moderation! What's ruining the experience?"
+        ],
+        "sports": [
+          "Bestie really got fouled by life today! What was unfair?",
+          "Not you taking the L when you deserved the W! What went wrong?",
+          "Your day said 'benched for no reason' and that's actually so unfair!",
+          "That's giving 'referee made terrible calls' energy! What was rigged against you?",
+          "Bestie's day really said 'injury timeout' and we need you back in the game!",
+          "Your day said 'own goal' and honestly that's so not your fault!",
+          "That's giving 'lost in overtime' vibes and we're devastated for you!",
+          "Not you facing the final boss of bad days! What's the ultimate challenge?",
+          "Your day really said 'disqualified for existing' and that's so not it!",
+          "That's actually so unsportsmanlike! Your day is playing dirty! What's cheating?"
+        ],
+        "tech": [
+          "Bestie your day is buffering at 1% and we're impatient! What's taking forever?",
+          "Not you dealing with the worst possible update today! What broke?",
+          "Your day said 'error 404: happiness not found' and that's so not it!",
+          "That's giving 'Wi-Fi down during important call' energy! What's disconnected?",
+          "Bestie's day really crashed harder than Internet Explorer! What's not working?",
+          "Your day said 'battery died at the worst moment' and honestly so rude!",
+          "That's giving 'autocorrect ruined everything' vibes! What got miscommunicated?",
+          "Not you stuck in the loading screen of life! What's taking so long?",
+          "Your day really said 'subscription expired' on your happiness and that's unfair!",
+          "That's actually so glitchy! Your day needs a patch update! What's buggy?"
         ]
       }
     },
@@ -85,34 +427,184 @@
         "books": [
           "Sometimes okay is perfectly fine. Not every day needs a plot twist.",
           "Fair enough. Anything specific making it just {keyword}?",
-          "Those quiet chapters matter too. What's been going on?"
+          "Those quiet chapters matter too. What's been going on?",
+          "The middle chapters are important too. What's the current storyline?",
+          "Not every page has to be action-packed. What's happening in your quiet moments?",
+          "Sounds like a steady, consistent narrative today. Any interesting subplots?",
+          "Sometimes the best books have peaceful interludes. What's your pace been like?",
+          "The {keyword} chapters help build character. What's developing in your story?",
+          "Not every day needs to be a page-turner. What's your current chapter about?",
+          "Sounds like you're in a transitional scene. What's shifting in your story?",
+          "The calm between plot points can be nice. What's your current setting?",
+          "Sometimes the most honest stories are quietly {keyword}. What's your truth today?",
+          "Not every narrative needs drama. What's your everyday story been like?",
+          "The {keyword} moments make the exciting ones more meaningful. What's grounding you?",
+          "Sounds like you're writing a realistic, lived-in story today. What's authentic about it?",
+          "The steady chapters are what make a book feel real. What's been consistent?"
         ],
         "tv": [
           "Not every episode moves the plot forward, and that's okay.",
           "A {keyword} day is still valid. Anything worth mentioning?",
-          "Sometimes we're just background characters in our own show. What's up?"
+          "Sometimes we're just background characters in our own show. What's up?",
+          "The filler episodes can be surprisingly meaningful. What's been your focus?",
+          "Not every day needs to be a season premiere. What's your regular programming?",
+          "Sometimes the quiet episodes are the most relatable. What's been routine?",
+          "The {keyword} episodes help develop character. What's been consistent in your arc?",
+          "Not every day can be a cliffhanger. What's been predictably yours?",
+          "Sounds like you're having a solid, mid-season episode. What's the current storyline?",
+          "The everyday episodes make the special ones more special. What's been normal?",
+          "Sometimes the best shows have quiet character moments. What's been yours?",
+          "Not every episode needs a twist ending. What's been straightforward today?",
+          "The {keyword} episodes are often the most honest ones. What's been real?",
+          "Sounds like you're in a comfortable rhythm with your series. What's working?",
+          "The steady episodes build the foundation for everything else. What's your base?",
+          "Not every day needs to be must-see TV. What's been comfortably watchable?"
         ],
         "music": [
           "Can't all be chart-toppers. What made it {keyword}?",
           "Sometimes life's just background music. Anything interesting happen?",
-          "The {keyword} days have their place too. What's been going on?"
+          "The {keyword} days have their place too. What's been going on?",
+          "Not every song needs to be a single. What's been your B-side today?",
+          "Sometimes the album tracks are the most honest. What's been your deeper cut?",
+          "The {keyword} songs help balance the playlist. What's been your steady rhythm?",
+          "Not every day needs to be a dance track. What's been your slower tempo?",
+          "Sounds like you're having an acoustic kind of day. What's been stripped down?",
+          "The quiet songs often say the most. What's been your subtle melody?",
+          "Not every track needs to be loud to be meaningful. What's been your gentle tune?",
+          "Sometimes the best music is comfortably {keyword}. What's been your vibe?",
+          "The steady beat days keep everything in time. What's been your consistent rhythm?",
+          "Not every song needs to be revolutionary. What's been classically yours?",
+          "Sounds like you're playing a familiar melody today. What's been recognizable?",
+          "The {keyword} tracks make the whole album flow better. What's been your bridge?",
+          "Not every day needs to be a concert. What's been your quiet listening session?"
+        ],
+        "gaming": [
+          "Not every session needs to be legendary. What's been your casual gameplay?",
+          "Sometimes grinding levels is just part of the process. What's been routine?",
+          "The {keyword} gaming sessions have their place. What's been your steady progress?",
+          "Not every day needs to be a boss fight. What's been your side quest?",
+          "Sounds like you're in exploration mode today. What's been your pace?",
+          "The quiet gaming moments can be peaceful. What's been your chill session?",
+          "Not every playthrough needs to be speedrun worthy. What's been your comfortable pace?",
+          "Sometimes just maintaining your save file is enough. What's been consistent?",
+          "The {keyword} gaming days help prevent burnout. What's been sustainable?",
+          "Not every session needs achievements. What's been your simple enjoyment?"
+        ],
+        "sports": [
+          "Not every day needs to be game day. What's been your practice session?",
+          "Sometimes it's just about showing up and doing the work. What's been your routine?",
+          "The {keyword} training days build the foundation. What's been your steady effort?",
+          "Not every workout needs to be a personal best. What's been your consistent pace?",
+          "Sounds like you're in maintenance mode today. What's been your steady rhythm?",
+          "The quiet preparation days matter too. What's been your behind-the-scenes work?",
+          "Not every day can be championship level. What's been your regular season?",
+          "Sometimes just staying in the game is the victory. What's kept you going?",
+          "The {keyword} days help prevent injury and burnout. What's been sustainable?",
+          "Not every session needs to be intense. What's been your recovery pace?"
+        ],
+        "tech": [
+          "Not every day needs to be a major update. What's been running smoothly?",
+          "Sometimes stable and {keyword} is exactly what you need. What's been consistent?",
+          "The quiet processing days are important too. What's been running in the background?",
+          "Not every session needs to be innovative. What's been your reliable performance?",
+          "Sounds like you're in maintenance mode today. What's been your steady operation?",
+          "The {keyword} days help prevent system overload. What's been sustainable?",
+          "Not every day needs new features. What's been your solid foundation?",
+          "Sometimes just staying online is enough. What's kept you connected?",
+          "The steady performance days are often the most valuable. What's been dependable?",
+          "Not every update needs to be revolutionary. What's been your stable version?"
         ]
       },
       "genz": {
         "books": [
           "The {keyword} vibe is valid. What's been happening?",
           "Not everything needs to be a plot twist. How's it going?",
-          "Sometimes we're just NPCs and that's fine. What's up?"
+          "Sometimes we're just NPCs and that's fine. What's up?",
+          "The {keyword} energy is actually so valid bestie. What's your current chapter?",
+          "Not every day needs main character energy and that's okay! What's been chill?",
+          "Your day said 'background character era' and honestly we respect that!",
+          "That's giving steady protagonist vibes - no drama, just vibes. What's consistent?",
+          "The {keyword} days hit different when you need them to. What's been your pace?",
+          "Not you having a whole comfort read kind of day! What's been cozy?",
+          "Your day is giving 'slice of life' energy and we're here for it!",
+          "That's actually so grounded! Your story doesn't need chaos to be valid!",
+          "The {keyword} chapters are often the most real ones. What's been authentic?",
+          "Not every day needs to be fanfiction-level dramatic! What's been normal?",
+          "Your day said 'steady character development' and that's growth bestie!",
+          "That's giving 'found family but make it mundane' vibes and it's perfect!",
+          "The {keyword} energy is actually so sustainable! What's been working for you?"
         ],
         "tv": [
           "A {keyword} episode in your series. Anything worth sharing?",
           "Can't all be main character moments. What's going on?",
-          "The {keyword} energy is real. Tell me about it."
+          "The {keyword} energy is real. Tell me about it.",
+          "Your day is giving 'filler episode but make it meaningful' vibes!",
+          "That's actually so valid! Not every episode needs to be season finale energy!",
+          "The {keyword} episodes are often the most relatable ones bestie!",
+          "Your day said 'comfort show energy' and honestly we need that sometimes!",
+          "That's giving 'background character having a normal day' and it's perfect!",
+          "Not you living your most sustainable series arc! What's been consistent?",
+          "Your day is giving 'slice of life anime' vibes and that's actually so peaceful!",
+          "That's actually so grounded! Your show doesn't need drama to be worth watching!",
+          "The {keyword} episodes make the intense ones hit different! What's been steady?",
+          "Not every day needs to be trending on social media! What's been quietly yours?",
+          "Your day said 'regular programming' and honestly that's so valid!",
+          "That's giving 'comfort rewatch' energy - familiar and safe! What's been reliable?",
+          "The {keyword} energy is actually so sustainable bestie! What's working?"
         ],
         "music": [
           "Not every day slaps, and that's okay. What's happening?",
           "The {keyword} vibe check. What's been going on?",
-          "Sometimes it's just elevator music. Anything to share?"
+          "Sometimes it's just elevator music. Anything to share?",
+          "Your day is giving 'lo-fi study playlist' vibes and honestly that's a mood!",
+          "That's actually so valid! Not every day needs to be a whole bop!",
+          "The {keyword} songs are often the most honest ones bestie!",
+          "Your day said 'acoustic version energy' and we're here for the stripped down vibes!",
+          "That's giving 'background music but make it meaningful' energy!",
+          "Not you having the most sustainable soundtrack today! What's been your rhythm?",
+          "Your day is giving 'comfort playlist on repeat' vibes and that's perfect!",
+          "That's actually so grounded! Your day doesn't need to chart to be valid!",
+          "The {keyword} tracks make the bangers hit different! What's been your steady beat?",
+          "Not every day needs to be TikTok viral! What's been quietly yours?",
+          "Your day said 'album deep cut' and honestly those are often the best!",
+          "That's giving 'rainy day playlist' energy - cozy and contemplative!",
+          "The {keyword} energy is actually so sustainable bestie! What's your vibe?"
+        ],
+        "gaming": [
+          "Not every session needs to be poggers! What's been your chill gameplay?",
+          "Your day is giving 'casual gaming' vibes and that's actually so valid!",
+          "That's giving 'maintenance day' energy - just keeping things running!",
+          "The {keyword} gaming sessions are often the most peaceful ones bestie!",
+          "Not you having a whole 'farming simulator' kind of day and we love that!",
+          "Your day said 'side quest energy' and honestly those are often the best parts!",
+          "That's actually so sustainable! Not every day needs to be competitive!",
+          "The {keyword} sessions help prevent burnout! What's been your steady progress?",
+          "Not every day needs achievements! What's been your simple enjoyment?",
+          "Your day is giving 'cozy game' vibes and that's exactly what we need sometimes!"
+        ],
+        "sports": [
+          "Not every day needs to be championship energy! What's been your practice?",
+          "Your day is giving 'training montage but chill' vibes and that's valid!",
+          "That's giving 'off-season' energy - just maintaining and that's okay!",
+          "The {keyword} workout days are often the most sustainable ones bestie!",
+          "Not you having a whole 'recovery day' and honestly that's so important!",
+          "Your day said 'participation trophy energy' and we're not mad about it!",
+          "That's actually so grounded! Not every day needs to be personal best!",
+          "The {keyword} sessions help prevent burnout! What's been consistent?",
+          "Not every day needs to be game day! What's been your steady routine?",
+          "Your day is giving 'yoga instead of CrossFit' vibes and that's perfect!"
+        ],
+        "tech": [
+          "Not every day needs to be a major update! What's been running smooth?",
+          "Your day is giving 'stable build' energy and honestly that's what we need!",
+          "That's giving 'background processes' vibes - important but not flashy!",
+          "The {keyword} days are often the most reliable ones bestie!",
+          "Not you having a whole 'maintenance mode' day and we respect that!",
+          "Your day said 'no new features, just stability' and honestly valid!",
+          "That's actually so sustainable! Not every day needs to be disruptive innovation!",
+          "The {keyword} performance days are often the most valuable! What's been steady?",
+          "Not every day needs to go viral! What's been your quiet productivity?",
+          "Your day is giving 'LTS version' vibes - boring but dependable!"
         ]
       }
     },
@@ -121,12 +613,39 @@
       "positive": [
         "They sound pretty great! How long have you known them?",
         "It's nice when people come through like that. Are they usually this supportive?",
-        "They seem like good energy to have around. Tell me more!"
+        "They seem like good energy to have around. Tell me more!",
+        "That's so heartwarming! What made them so wonderful today?",
+        "They sound like a keeper! What's their best quality?",
+        "It's beautiful when people surprise us in good ways. What did they do?",
+        "That kind of support is everything! How did they show up for you?",
+        "They sound like they really get you. What made the connection so good?",
+        "That's the kind of person everyone needs in their life! What's their vibe like?",
+        "It's amazing when people exceed expectations. How did they do that?",
+        "They sound like they bring out the best in you. What's that dynamic like?",
+        "That's such a green flag! What made them stand out today?",
+        "They sound like they have great energy. How do they make you feel?",
+        "It's rare to find people like that. What makes them so special?",
+        "They sound like they really care about you. How did that show?",
+        "That's the kind of friendship/relationship we all need! What's their secret?"
       ],
       "negative": [
         "Oh that's frustrating when people act like that. How did you handle it?",
         "They don't sound very considerate. Is this typical for them?",
-        "That's tough when people are difficult. What did you do?"
+        "That's tough when people are difficult. What did you do?",
+        "Ugh, that sounds really draining. How are you dealing with their energy?",
+        "People can be so thoughtless sometimes. How did that affect your day?",
+        "That's not okay behavior. Are you alright after dealing with that?",
+        "They sound exhausting to be around. How do you usually cope with them?",
+        "That kind of negativity is so unnecessary. How did you protect your peace?",
+        "Some people just don't get it, do they? How did you respond?",
+        "That's such a red flag. Have they always been like this?",
+        "They sound like they're going through something, but that's no excuse. How did it impact you?",
+        "That behavior is not it. How do you usually handle them when they're like this?",
+        "They sound like they need to work on themselves. How did you maintain your boundaries?",
+        "That's so disrespectful. How are you processing that interaction?",
+        "People like that can really test your patience. How did you stay calm?",
+        "They sound like they're projecting their issues onto you. How did you handle that?",
+        "That kind of toxicity is draining. How do you protect your energy around them?"
       ]
     },
     
@@ -134,25 +653,165 @@
       "work": [
         "How's the work situation been lately? Better or worse than usual?",
         "Work can really set the tone for the day. Was it meetings or just general stuff?",
-        "What's the work vibe been like recently?"
+        "What's the work vibe been like recently?",
+        "Work days can be so unpredictable. What made today stand out?",
+        "The workplace energy affects everything. How was the atmosphere?",
+        "Work stress is so real. How are you managing the pressure?",
+        "Every workplace has its own rhythm. What's yours like lately?",
+        "Work-life balance is everything. How are you finding that sweet spot?",
+        "The work grind can be intense. What's keeping you motivated?",
+        "Workplace dynamics are fascinating. What's the current situation?",
+        "Career stuff can be overwhelming. How are you navigating it all?",
+        "The professional world is wild. What's your experience been like?",
+        "Work relationships are so important. How's your team dynamic?",
+        "The daily work routine can get monotonous. What's breaking it up for you?",
+        "Career growth is a journey. How are you feeling about your path?"
       ],
       "social": [
         "Nice! Who were you with?",
         "That sounds fun! Was this planned or spontaneous?",
-        "Love some social time! How was the vibe?"
+        "Love some social time! How was the vibe?",
+        "Social connections are everything! What made it special?",
+        "There's nothing like good company. What was the energy like?",
+        "Social time is so important for the soul. How did it feel?",
+        "The right people make all the difference. What was the group like?",
+        "Social situations can be hit or miss. How did this one go?",
+        "Quality time with people is precious. What made it memorable?",
+        "Social energy is contagious. What was the mood?",
+        "There's something magical about connecting with others. How did it feel?",
+        "Social gatherings can be so rejuvenating. What recharged you?",
+        "The best conversations happen in good company. What did you talk about?",
+        "Social time away from screens is golden. How was the real-world connection?",
+        "There's nothing like laughing with people you care about. What was funny?"
+      ],
+      "health": [
+        "Health is everything. How are you taking care of yourself?",
+        "Physical wellness affects mental wellness. How's your body feeling?",
+        "Health journeys are so personal. What's yours looking like?",
+        "Taking care of yourself is not selfish. What are you doing for you?",
+        "Health challenges can be overwhelming. How are you coping?",
+        "Wellness is a daily practice. What's working for you?",
+        "Your body is your temple. How are you honoring it?",
+        "Health scares can be terrifying. How are you processing this?",
+        "Recovery is not linear. How are you being patient with yourself?",
+        "Preventive care is so important. How are you staying proactive?",
+        "Mental health is health. How are you supporting your mind?",
+        "Health anxiety is real. How are you managing those worries?",
+        "Chronic conditions require so much strength. How are you holding up?",
+        "Health victories deserve celebration. What are you proud of?",
+        "Healthcare can be frustrating. How was your experience?"
+      ],
+      "family": [
+        "Family dynamics are complex. How's everyone doing?",
+        "Family time can be rejuvenating or draining. How was it?",
+        "There's nothing quite like family. What's the current situation?",
+        "Family relationships evolve over time. How are yours changing?",
+        "Family can be your biggest support or biggest challenge. What's your experience?",
+        "Extended family gatherings are always interesting. How did it go?",
+        "Family traditions are special. What's meaningful to your family?",
+        "Family drama is exhausting. How do you navigate those waters?",
+        "Chosen family is just as important as blood family. Who's in your circle?",
+        "Family milestones are emotional. How are you feeling about this one?",
+        "Family expectations can be heavy. How do you handle the pressure?",
+        "Family communication styles vary so much. How does yours work?",
+        "Family healing takes time. How's that journey going for you?",
+        "Family boundaries are essential. How do you maintain yours?",
+        "Family love is complicated but powerful. How does it show up for you?"
       ]
+    },
+    
+    "specialized_responses": {
+      "mixed_emotions": [
+        "It sounds like you're feeling a lot of different things at once. That's totally normal - days can be complicated!",
+        "Mixed feelings are so human. What's the strongest emotion you're experiencing?",
+        "Life rarely fits into neat emotional categories. What's the overall trend of your day?",
+        "Emotional complexity is part of being human. What's weighing on you most?",
+        "It's okay to feel multiple things at once. What's the dominant feeling right now?",
+        "Days with mixed emotions can be exhausting. How are you processing it all?",
+        "Conflicting feelings are tough to navigate. What's helping you make sense of it?",
+        "Emotional nuance is real. What's the thread connecting all these feelings?",
+        "It's normal for days to have emotional ups and downs. What's the pattern you're noticing?"
+      ],
+      "intense_emotions": [
+        "That sounds really intense. How are you managing such strong feelings?",
+        "Wow, that's a lot to process. Are you getting the support you need?",
+        "Intense emotions can be overwhelming. What's helping you cope?",
+        "That level of feeling is exhausting. How are you taking care of yourself?",
+        "Strong emotions demand attention. What do you think they're trying to tell you?",
+        "That intensity must be draining. How are you finding balance?",
+        "Big feelings require big care. What are you doing to support yourself?",
+        "That emotional intensity is valid. How are you honoring what you're feeling?",
+        "Overwhelming emotions are hard to sit with. What's helping you process?"
+      ],
+      "time_specific": {
+        "morning": [
+          "Mornings set the tone for everything. How did yours start?",
+          "The morning energy is so important. What was your wake-up experience like?",
+          "Morning routines can make or break a day. How's yours serving you?",
+          "There's something special about morning possibilities. What's on your agenda?",
+          "Morning mood affects the whole day. How are you feeling as you begin?"
+        ],
+        "afternoon": [
+          "Afternoon energy can be tricky. How are you holding up?",
+          "The afternoon slump is real. What's keeping you going?",
+          "Midday check-ins are important. How's your day progressing?",
+          "Afternoon transitions can be challenging. How are you navigating yours?",
+          "The afternoon hours are when things either pick up or slow down. Which is it for you?"
+        ],
+        "evening": [
+          "Evening reflection time. How are you processing your day?",
+          "The evening wind-down is crucial. How are you transitioning?",
+          "End-of-day energy can be complex. What are you feeling as things wrap up?",
+          "Evening is for processing and planning. What's on your mind?",
+          "The day is winding down. How are you feeling about how it went?"
+        ]
+      }
     },
     
     "fallback": [
       "I'm not quite catching that - I'm just a cozy bot here to hear about your day! Can you tell me more about how you're feeling?",
       "Hmm, I want to make sure I understand - what's been the main vibe of your day?",
-      "Let me get back on track - how has your day been treating you overall?"
+      "Let me get back on track - how has your day been treating you overall?",
+      "I'm here to listen to whatever you want to share about your day. What's on your mind?",
+      "Sometimes it's hard to put feelings into words. Can you tell me more about what you're experiencing?",
+      "I want to understand better. What's the most important thing that happened to you today?",
+      "Your experience matters to me. Can you help me understand what you're going through?",
+      "I'm all ears! What's the story of your day, even if it feels scattered?",
+      "Every day has something worth talking about. What stands out to you about today?",
+      "I'm here for whatever you need to process. What's weighing on you or lifting you up?",
+      "Sometimes days are hard to categorize. What's the overall feeling you're left with?",
+      "I'm curious about your world. What's been occupying your thoughts today?",
+      "Your feelings are valid, whatever they are. Can you tell me more about your day?",
+      "I'm here to listen without judgment. What's been your experience today?",
+      "Days can be complicated. What's the thread running through yours?",
+      "I want to understand your perspective. What's been significant about today for you?",
+      "Every story matters. What's yours today, in whatever way feels right to tell it?",
+      "I'm genuinely curious about how you're doing. What would you like me to know about your day?",
+      "Sometimes we need someone to just listen. What do you need to get off your chest?",
+      "Your day, your story, your feelings - I'm here for all of it. What do you want to share?"
     ],
     
     "redirect": [
       "That's interesting! But let's get back to you - how did that affect your day?",
       "I hear you! But I'm more curious about how YOUR day went. What's been happening?",
-      "For sure! But tell me about YOUR day - what's been the highlight?"
+      "For sure! But tell me about YOUR day - what's been the highlight?",
+      "That's fascinating, but I'm really here to listen to you. How has your day been?",
+      "I appreciate you sharing that! Now tell me - how are YOU doing today?",
+      "That's worth discussing, but right now I want to focus on you. What's your day been like?",
+      "Interesting perspective! But let's center this on your experience - how was your day?",
+      "I hear what you're saying! But I'm curious about your personal day. How did it go?",
+      "That's definitely something to think about! But tell me about YOUR day specifically.",
+      "Valid point! But I'm here to listen to your day. What's been happening with you?",
+      "I get that! But let's talk about you - what's been going on in your world today?",
+      "That makes sense! But I want to hear about your personal experience today.",
+      "Sure! But I'm really interested in YOUR story today. How has it been?",
+      "Absolutely! But let's focus on you right now - what's your day been like?",
+      "I understand! But tell me about your personal day. What's been the vibe?",
+      "That's worth considering! But I'm here for YOUR day specifically. How was it?",
+      "Good point! But let's get back to your personal experience - how are you doing?",
+      "I see what you mean! But I want to hear about YOUR day. What happened?",
+      "That's true! But I'm curious about your individual experience today.",
+      "Fair enough! But let's talk about you - what's been the story of your day?"
     ],
     
     "followup": [
@@ -161,7 +820,31 @@
       "How did that make you feel?",
       "Was that expected or did it surprise you?",
       "What's your plan now?",
-      "How are you processing all this?"
+      "How are you processing all this?",
+      "What was going through your mind when that happened?",
+      "How did you react to that situation?",
+      "What was the most challenging part about that?",
+      "What surprised you most about how that went?",
+      "How did other people respond to that?",
+      "What would you do differently if it happened again?",
+      "What did you learn from that experience?",
+      "How are you feeling about it now, looking back?",
+      "What's the biggest takeaway from that situation?",
+      "How did that change the rest of your day?",
+      "What was your gut reaction to that?",
+      "How did you know what to do in that moment?",
+      "What was the hardest part about dealing with that?",
+      "What are you hoping happens next with that situation?",
+      "How did that align with your expectations?",
+      "What was most meaningful to you about that?",
+      "How did that affect your mood for the rest of the day?",
+      "What was your biggest concern going into that?",
+      "How did you prepare yourself for that situation?",
+      "What was the most rewarding part of that experience?",
+      "How did that compare to similar situations you've been in?",
+      "What was your support system like during that?",
+      "How did you celebrate or process that afterward?",
+      "What would you want someone in a similar situation to know?"
     ]
   }
 }
